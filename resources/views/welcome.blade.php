@@ -87,8 +87,8 @@
         </div>
 
         <div class="links">
-            <a href="#">Login</a>
-            <a href="#">Regsiter</a>
+            <a href="{{ url('/login') }}">Login</a>
+            <a href="{{ url('/register') }}">Register</a>
             <a href="#">About</a>
             <a href="https://github.com/gnailiylin/sorp">GitHub</a>
         </div>
