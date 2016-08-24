@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sorp</title>
+    <title>Rusl</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{url('favicon.ico')}}"/>
     <!-- Fonts -->
@@ -80,7 +80,7 @@
 
     <div class="content">
         <div class="title m-b-md">
-            Sorp
+            Rusl
         </div>
         <div class="subtitle m-b-md">
             A small inventory management system
@@ -90,7 +90,7 @@
             <a href="{{ url('/login') }}">Login</a>
             <a href="{{ url('/register') }}">Register</a>
             <a href="#">About</a>
-            <a href="https://github.com/gnailiylin/sorp">GitHub</a>
+            <a href="https://github.com/gnailiylin/Rusl">GitHub</a>
         </div>
     </div>
 </div>
