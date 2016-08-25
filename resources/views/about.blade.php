@@ -42,16 +42,25 @@
             top: 18px;
         }
 
-        .content {
-            text-align: center;
-        }
-
         .title {
-            font-size: 84px;
+            font-size: 60px;
         }
 
         .subtitle {
             font-size: 40px;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            color: #636b6f;
+            font-size: 18px;
+            font-weight: 100;
+            letter-spacing: .1rem;
+            text-decoration: none;
         }
 
         .links > a {
@@ -78,20 +87,19 @@
         </div>
     @endif
 
-    <div class="content">
+    <div>
         <div class="title m-b-md">
-            Rusl
+            About
         </div>
         <div class="subtitle m-b-md">
-            A small inventory management system
+            This is my graduation project.
         </div>
 
-        <div class="links">
-            <a href="{{ url('/login') }}">Login</a>
-            <a href="{{ url('/register') }}">Register</a>
-            <a href="{{ url('about') }}">About</a>
-            <a href="{{ url('https://github.com/gnailiylin/Rusl') }}">GitHub</a>
-        </div>
+        <ul>
+            <li>Backend Framework: Laravel</li>
+            <li>Frontend Framework: Vue</li>
+            <li>Template: AdminLTE</li>
+        </ul>
     </div>
 </div>
 </body>
