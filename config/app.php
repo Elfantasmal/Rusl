@@ -167,8 +167,7 @@ return [
          * Package Service Providers...
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
-        //
+        Bican\Roles\RolesServiceProvider::class,
 
         /*
          * Application Service Providers...

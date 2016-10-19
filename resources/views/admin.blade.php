@@ -28,26 +28,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition skin-black-light sidebar-mini">
 <div class="wrapper">
 
@@ -87,7 +67,8 @@ desired effect
                                         <a href="#">
                                             <div class="pull-left">
                                                 <!-- User Image -->
-                                                <img src="{{asset('/vendor/adminlte/dist/img/avatar4.png')}}" class="img-circle"
+                                                <img src="{{asset('/vendor/adminlte/dist/img/avatar4.png')}}"
+                                                     class="img-circle"
                                                      alt="User Image">
                                             </div>
                                             <!-- Message title and timestamp -->
@@ -174,14 +155,16 @@ desired effect
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="{{asset('/vendor/adminlte/dist/img/avatar4.png')}}" class="user-image" alt="User Image">
+                            <img src="{{asset('/vendor/adminlte/dist/img/avatar4.png')}}" class="user-image"
+                                 alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs">GnailiyLin</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="{{asset('/vendor/adminlte/dist/img/avatar4.png')}}" class="img-circle" alt="User Image">
+                                <img src="{{asset('/vendor/adminlte/dist/img/avatar4.png')}}" class="img-circle"
+                                     alt="User Image">
 
                                 <p>
                                     GnailiyLin - Web Developer
