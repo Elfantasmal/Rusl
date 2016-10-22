@@ -9,7 +9,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{url('favicon.ico')}}"/>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.gmirror.org/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <style>
@@ -71,25 +71,17 @@
 </head>
 <body>
 <div class="flex-center position-ref full-height">
-    @if (Route::has('login'))
-        <div class="top-right links">
-            <a href="{{ url('/login') }}">Login</a>
-            <a href="{{ url('/register') }}">Register</a>
-        </div>
-    @endif
-
     <div class="content">
         <div class="title m-b-md">
             Rusl
         </div>
         <div class="subtitle m-b-md">
-            A small inventory management system
+            基于SAE的供销存系统
         </div>
 
-        <div class="links">
-            <a href="{{ url('/login') }}">Login</a>
-            <a href="{{ url('/register') }}">Register</a>
-            <a href="{{ url('about') }}">About</a>
+        <div class="links m-b-md">
+            <a href="{{ url('/login') }}">登录</a>
+            <a href="{{ url('/register') }}">注册</a>
             <a href="{{ url('https://github.com/gnailiylin/Rusl') }}">GitHub</a>
         </div>
     </div>
