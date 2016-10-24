@@ -20,7 +20,12 @@
           apply the skin class to the body tag so the changes take effect.
     -->
     <link rel="stylesheet" href="{{asset('/vendor/adminlte/dist/css/skins/skin-black-light.min.css')}}">
-
+    <!-- Custom font style -->
+    <style>
+        html, body {
+            font-family: 'PingFang SC', 'Verdana', 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'sans-serif';
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,11 +37,11 @@
 <div class="wrapper">
 
     <!-- Main Header -->
-    @include('admin.layout.header')
-    <!-- Left side column. contains the logo and sidebar -->
-    @include('admin.layout.sidebar')
+@include('layouts.header')
+<!-- Left side column. contains the logo and sidebar -->
+@include('layouts.sidebar')
 
-    <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -53,9 +58,9 @@
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-    @include('admin.layout.footer')
+@include('layouts.footer')
 
-    <!-- Add the sidebar's background. This div must be placed
+<!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>

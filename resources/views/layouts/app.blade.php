@@ -13,6 +13,12 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('/vendor/adminlte/dist/css/AdminLTE.min.css')}}">
+    <!-- Custom font style -->
+    <style>
+        html, body {
+            font-family: 'PingFang SC', 'Verdana', 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'sans-serif';
+        }
+    </style>
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([

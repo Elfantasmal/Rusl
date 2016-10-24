@@ -16,7 +16,7 @@
         html, body {
             background-color: #fff;
             color: #636b6f;
-            font-family: 'Raleway';
+            font-family: 'Raleway','PingFang SC','Verdana', 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'sans-serif';
             font-weight: 100;
             height: 100vh;
             margin: 0;
