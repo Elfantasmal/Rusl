@@ -11,9 +11,9 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">邮箱</label>
+                            <label for="email" class="col-sm-2 control-label">邮箱</label>
 
-                            <div class="col-md-6">
+                            <div class="col-sm-10">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
 
                                 @if ($errors->has('email'))
@@ -25,9 +25,9 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">密码</label>
+                            <label for="password" class="col-sm-2 control-label">密码</label>
 
-                            <div class="col-md-6">
+                            <div class="col-sm-10">
                                 <input id="password" type="password" class="form-control" name="password">
 
                                 @if ($errors->has('password'))
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-sm-2 col-sm-offset-2">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember"> 记住我
@@ -49,8 +49,8 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button type="submit" class="btn btn-info">
                                     登录
                                 </button>
 
