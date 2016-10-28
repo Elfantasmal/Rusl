@@ -1,4 +1,4 @@
-# Sorp
+# Rusl
 ##A small inventory management system
 
 ###Graduation Project
