@@ -19,7 +19,7 @@
         <ul class="sidebar-menu">
             <li class="header">导航</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-tachometer"></i> <span>仪表盘</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-tachometer"></i> <span>主页</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>测试</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-user"></i> <span>用户管理</span>
@@ -28,10 +28,10 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">添加用户</a></li>
-                    <li><a href="#">编辑用户</a></li>
-                    <li><a href="#">用户列表</a></li>
-                    <li><a href="#">个人信息</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 用户列表</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 个人信息</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 角色</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 权限</a></li>
                 </ul>
             </li>
 
@@ -42,10 +42,10 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">添加客户</a></li>
-                    <li><a href="#">编辑客户</a></li>
-                    <li><a href="#">客户列表</a></li>
-                    <li><a href="#">客户信息</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 客户列表</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 添加客户</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 编辑客户</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 客户信息</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -55,10 +55,10 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">添加供应商</a></li>
-                    <li><a href="#">编辑供应商</a></li>
-                    <li><a href="#">供应商列表</a></li>
-                    <li><a href="#">供应商信息</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 供应商列表</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 添加供应商</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 编辑供应商</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 供应商信息</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -77,10 +77,10 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">添加商品</a></li>
-                    <li><a href="#">编辑商品</a></li>
-                    <li><a href="#">商品列表</a></li>
-                    <li><a href="#">商品信息</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 商品列表</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 添加商品</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 编辑商品</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 商品信息</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -90,10 +90,10 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">添加订单</a></li>
-                    <li><a href="#">编辑订单</a></li>
-                    <li><a href="#">订单列表</a></li>
-                    <li><a href="#">订单信息</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 添加订单</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 编辑订单</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 订单列表</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 订单信息</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -103,30 +103,6 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-cogs"></i> <span>权限管理</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#">添加权限</a></li>
-                    <li><a href="#">编辑权限</a></li>
-                    <li><a href="#">权限列表</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-users"></i> <span>角色管理</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#">角色列表</a></li>
-                    <li><a href="#">添加角色</a></li>
-                    <li><a href="#">编辑角色</a></li>
                 </ul>
             </li>
         </ul>

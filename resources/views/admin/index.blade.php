@@ -37,30 +37,18 @@
 <div class="wrapper">
 
     <!-- Main Header -->
-@include('layouts.header')
-<!-- Left side column. contains the logo and sidebar -->
-@include('layouts.sidebar')
+    @include('layouts.header')
+    <!-- Left side column. contains the logo and sidebar -->
+    @include('layouts.sidebar')
 
-<!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-
-            <!-- Your Page Content Here -->
-
-        </section>
-        <!-- /.content -->
-    </div>
+    <!-- Content Wrapper. Contains page content -->
+    @include('admin.dashboard')
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-@include('layouts.footer')
+    @include('layouts.footer')
 
-<!-- Add the sidebar's background. This div must be placed
+    <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 </div>
