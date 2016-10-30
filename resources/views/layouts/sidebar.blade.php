@@ -19,17 +19,17 @@
         <ul class="sidebar-menu">
             <li class="header">导航</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-tachometer"></i> <span>主页</span></a></li>
+            <li class="active"><a href="#"><i class="fa fa-tachometer"></i> <span>概览</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>测试</span></a></li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-user"></i> <span>用户管理</span>
+                <a href=""><i class="fa fa-user"></i> <span>用户管理</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 用户列表</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 个人信息</a></li>
+                    <li><a href="{{url('/users')}}"><i class="fa fa-circle-o"></i> 用户列表</a></li>
+                    <li><a href="{{url('/users').'/'.Auth::user()->id}}"><i class="fa fa-circle-o"></i> 个人信息</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> 角色</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> 权限</a></li>
                 </ul>

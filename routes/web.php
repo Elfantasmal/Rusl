@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/index', 'Admin\IndexController@index');
+
+Route::resource('/users', 'Admin\UserController');
+
