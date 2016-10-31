@@ -130,7 +130,8 @@
                                         <i class="fa fa-camera bg-purple"></i>
 
                                         <div class="timeline-item">
-                                            <span class="time"><i class="fa fa-clock-o"></i> {{Date::create(2016, 10, 24, 12, 0, 0)->format('Y-m-d')}}</span>
+                                            <span class="time"><i
+                                                        class="fa fa-clock-o"></i> {{Date::create(2016, 10, 24, 12, 0, 0)->format('Y-m-d')}}</span>
 
                                             <h3 class="timeline-header"><a href="#">Test</a> 上传了新照片
                                             </h3>
@@ -157,7 +158,8 @@
                                         <label for="inputName" class="col-sm-2 control-label">姓名</label>
 
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputName" placeholder="请输入您的姓名">
+                                            <input type="email" class="form-control" id="inputName"
+                                                   placeholder="请输入您的姓名">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -173,7 +175,7 @@
 
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="inputExperience"
-                                                      placeholder="密码">
+                                                   placeholder="密码">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -200,8 +202,8 @@
                 <!-- /.col -->
             </div>
             <!-- /.row -->
-
-            <!-- /.content -->
+        </section>
+        <!-- /.content -->
     </div>
 
 @stop

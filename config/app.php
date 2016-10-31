@@ -166,9 +166,9 @@ return [
         /*
          * Package Service Providers...
          */
+        Klaravel\Ntrust\NtrustServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Bican\Roles\RolesServiceProvider::class,
         Overtrue\LaravelLang\TranslationServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
         /*
@@ -226,8 +226,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Ntrust' => Klaravel\Ntrust\NtrustFacade::class,
         'Date' => Jenssegers\Date\Date::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
