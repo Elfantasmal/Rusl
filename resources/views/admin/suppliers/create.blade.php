@@ -4,13 +4,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                编辑供应商
+                添加客户
                 <small>控制面板</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/index"><i class="fa fa-dashboard"></i> 概览</a></li>
-                <li><a href="#">供应商管理</a></li>
-                <li class="active">编辑供应商</li>
+                <li><a href="#">客户管理</a></li>
+                <li class="active">添加客户</li>
             </ol>
         </section>
 
@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">编辑</h3>
+                            <h3 class="box-title">添加</h3>
                         </div>
                         <form method="post">
                             <div class="box-body">
@@ -53,11 +53,6 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-truck"></i></span>
                                     <input type="text" class="form-control" placeholder="地址">
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <textarea id="description" name="description" class="form-control"
-                                              placeholder="公司简介" rows="5"></textarea>
                                 </div>
                                 <!-- /input-group -->
                             </div>

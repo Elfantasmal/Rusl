@@ -19,6 +19,7 @@ class CreateCustomerTable extends Migration
             $table->string('company_phone');
             $table->string('contact_name');
             $table->string('mobile_phone')->unique();
+            $table->string('email')->unique();
             $table->string('address');
             $table->string('description');
             $table->timestamps();

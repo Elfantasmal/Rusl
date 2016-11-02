@@ -21,3 +21,6 @@ Route::get('/index', 'Admin\IndexController@index');
 
 Route::resource('/users', 'Admin\UserController');
 
+Route::resource('/suppliers', 'Admin\SupplierController');
+
+Route::resource('/customers', 'Admin\CustomerController');

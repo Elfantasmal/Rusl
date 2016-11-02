@@ -15,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.users.index');
+        $users = User::paginate(10);
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -38,7 +39,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.users.profile', compact('user',$user));
+        return view('admin.users.profile', compact('user'));
     }
 
     /**

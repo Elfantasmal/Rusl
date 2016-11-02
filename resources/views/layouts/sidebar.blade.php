@@ -22,7 +22,7 @@
             <li class="active"><a href="#"><i class="fa fa-tachometer"></i> <span>概览</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>测试</span></a></li>
             <li class="treeview">
-                <a href=""><i class="fa fa-user"></i> <span>用户管理</span>
+                <a href="{{url('/users')}}"><i class="fa fa-user"></i> <span>用户管理</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -36,26 +36,26 @@
             </li>
 
             <li class="treeview">
-                <a href="#"><i class="fa fa-briefcase"></i> <span>客户管理</span>
+                <a href="{{url('/customers')}}"><i class="fa fa-briefcase"></i> <span>客户管理</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 客户列表</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 添加客户</a></li>
+                    <li><a href="{{url('/customers')}}"><i class="fa fa-circle-o"></i> 客户列表</a></li>
+                    <li><a href="{{url('/customers/create')}}"><i class="fa fa-circle-o"></i> 添加客户</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> 编辑客户</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> 客户信息</a></li>
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-fax"></i> <span>供应商管理</span>
+                <a href="{{url('/suppliers')}}"><i class="fa fa-fax"></i> <span>供应商管理</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 供应商列表</a></li>
+                    <li><a href="{{url('/suppliers')}}"><i class="fa fa-circle-o"></i> 供应商列表</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> 添加供应商</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> 编辑供应商</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> 供应商信息</a></li>
@@ -68,6 +68,9 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 库存盘点</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 商品入库</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 商品出库</a></li>
                 </ul>
             </li>
             <li class="treeview">
