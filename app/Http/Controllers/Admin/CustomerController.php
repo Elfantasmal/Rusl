@@ -37,7 +37,8 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = Customer::create($request->all());
+        return redirect('/customers/' . $customer->id, compact('customer'));
     }
 
     /**
@@ -48,7 +49,8 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = Customer::find($id);
+        return view('admin.customers.profile', compact('customer'));
     }
 
     /**
@@ -86,7 +88,6 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         Customer::destroy($id);
-        $customers = Customer::paginate(10);
-        return view('admin.customers.index', compact('customers'));
+        return redirect('/customers');
     }
 }

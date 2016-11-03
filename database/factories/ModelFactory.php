@@ -51,11 +51,9 @@ $factory->define(App\Models\Supplier::class, function (Faker\Generator $faker) {
 $factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->userName,
         'price' => $faker->randomNumber(4),
-        'stock' => $faker->randomNumber(5),
-        'stock_alert' => $faker->randomNumber(4),
-        'supplier_id' => $faker->numberBetween(1, 100),
+        'supplier_id' => $faker->numberBetween(1, 20),
     ];
 });
 

@@ -16,8 +16,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->singleton(Generator::class, function () {
-           return Factory::create("zh_CN");
+            return Factory::create("zh_CN");
         });
+
     }
 
     /**

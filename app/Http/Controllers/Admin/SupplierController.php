@@ -16,7 +16,7 @@ class SupplierController extends Controller
     public function index()
     {
         $suppliers = Supplier::paginate(10);
-        return view('admin.Suppliers.index', compact('suppliers'));
+        return view('admin.suppliers.index', compact('suppliers'));
     }
 
     /**
@@ -37,7 +37,8 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $supplier = Supplier::create($request->all());
+        return redirect('/suppliers/' . $supplier->id, compact('supplier'));
     }
 
     /**
@@ -48,7 +49,8 @@ class SupplierController extends Controller
      */
     public function show($id)
     {
-        //
+        $supplier = Supplier::find($id);
+        return view('admin.suppliers.profile', compact('supplier'));
     }
 
     /**
@@ -72,7 +74,9 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $supplier = Supplier::find($id);
+        $supplier->update($request->all());
+        return redirect("/suppliers");
     }
 
     /**

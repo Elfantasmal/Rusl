@@ -8,8 +8,8 @@
                 <small>控制面板</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/index"><i class="fa fa-dashboard"></i> 概览</a></li>
-                <li><a href="#">客户管理</a></li>
+                <li><a href="{{url('/index')}}"><i class="fa fa-dashboard"></i> 概览</a></li>
+                <li><a href="{{url('/customers')}}">客户管理</a></li>
                 <li class="active">编辑客户</li>
             </ol>
         </section>
@@ -62,18 +62,16 @@
                                 </div>
                                 <br>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-truck"></i></span>
+                                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
                                     <input id="address" name="address" type="text" class="form-control"
                                            value="{{$customer->address}}"
                                            placeholder="地址">
                                 </div>
-                            <!--
                                 <br>
                                 <div class="form-group">
                                     <textarea id="description" name="description" class="form-control"
                                               placeholder="公司简介" rows="5">{{$customer->description}}</textarea>
                                 </div>
-                                -->
                                 <!-- /input-group -->
                             </div>
                             <!-- /.box-body -->

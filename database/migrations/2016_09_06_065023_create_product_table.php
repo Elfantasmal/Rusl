@@ -17,8 +17,6 @@ class CreateProductTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->decimal('price');
-            $table->integer('stock')->unsigned()->default(0);
-            $table->integer('stock_alert')->unsigned()->default(0);
             $table->integer('supplier_id')->unsigned();
             $table->foreign('supplier_id')->references('id')->on('suppliers')
                 ->onUpdate('cascade')->onDelete('cascade');

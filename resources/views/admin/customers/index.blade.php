@@ -8,8 +8,8 @@
                 <small>控制面板</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/index"><i class="fa fa-dashboard"></i> 概览</a></li>
-                <li><a href="#">客户管理</a></li>
+                <li><a href="{{url('/index')}}"><i class="fa fa-dashboard"></i> 概览</a></li>
+                <li><a href="{{url('/customers')}}">客户管理</a></li>
                 <li class="active">客户列表</li>
             </ol>
         </section>
@@ -40,7 +40,7 @@
                                 </tr>
                                 @foreach($customers as $customer)
                                     <tr>
-                                        <td style="width: auto">{{$customer->id}}</td>
+                                        <td>{{$customer->id}}</td>
                                         <td>{{$customer->company_name}}</td>
                                         <td>{{$customer->company_phone}}</td>
                                         <td>{{$customer->contact_name}}</td>
@@ -51,13 +51,21 @@
                                         <td>{{$customer->updated_at}}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-info ">
-                                                    <a href='{{url('customers/'.$customer->id.'/edit')}}'>
+                                                <a href='{{url('customers/'.$customer->id)}}'>
+                                                    <button type="button" class="btn btn-info ">
+                                                        <i class="fa fa-book"></i>
+                                                    </button>
+                                                </a>
+                                                <a href='{{url('customers/'.$customer->id.'/edit')}}'>
+                                                    <button type="button" class="btn btn-info ">
                                                         <i class="fa fa-edit"></i>
-                                                    </a>
-                                                </button>
-                                                <button type="button" class="btn btn-info"><i class="fa fa-times"></i>
-                                                </button>
+                                                    </button>
+                                                </a>
+                                                <a href="#">
+                                                    <button type="button" class="btn btn-info">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </button>
+                                                </a>
                                             </div>
                                         </td>
                                     </tr>

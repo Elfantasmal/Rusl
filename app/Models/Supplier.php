@@ -20,4 +20,9 @@ class Supplier extends Model
         'address',
         'description'
     ];
+
+    public function products()
+    {
+        $this->hasMany('products');
+    }
 }

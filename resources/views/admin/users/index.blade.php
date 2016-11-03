@@ -41,10 +41,12 @@
                                         <td>{{$user->email}}</td>
                                         <td>{{$user->created_at}}</td>
                                         <td>{{$user->updated_at}}</td>
-                                        <td td style="width: auto">
+                                        <td>
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-info "><i class="fa fa-edit"></i></button>
-                                                <button type="button" class="btn btn-info"><i class="fa fa-times"></i></button>
+                                                <button type="button" class="btn btn-info "><i class="fa fa-edit"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-info"><i class="fa fa-trash-o"></i>
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>

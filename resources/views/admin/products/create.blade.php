@@ -4,13 +4,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                创建供应商
+                创建商品
                 <small>控制面板</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{url('/index')}}"><i class="fa fa-dashboard"></i> 概览</a></li>
-                <li><a href="{{url('/suppliers')}}">供应商管理</a></li>
-                <li class="active">创建供应商</li>
+                <li><a href="{{url('/products')}}">商品管理</a></li>
+                <li class="active">创建商品</li>
             </ol>
         </section>
 
@@ -22,7 +22,7 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">创建</h3>
                         </div>
-                        <form method="POST" action="{{url('/suppliers/')}}">
+                        <form method="POST" action="{{url('/products/')}}">
                             <div class="box-body">
                                 <div class="input-group">
                                     <span class="input-group-addon">@</span>

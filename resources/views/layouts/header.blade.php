@@ -41,7 +41,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">详情</a>
+                                <a href="{{url('/users/'.Auth::id())}}" class="btn btn-default btn-flat">详情</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{{ url('/logout') }}" class="btn btn-default btn-flat"
