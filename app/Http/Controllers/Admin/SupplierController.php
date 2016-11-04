@@ -50,7 +50,7 @@ class SupplierController extends Controller
     public function show($id)
     {
         $supplier = Supplier::find($id);
-        return view('admin.suppliers.profile', compact('supplier'));
+        return view('admin.suppliers.show', compact('supplier'));
     }
 
     /**

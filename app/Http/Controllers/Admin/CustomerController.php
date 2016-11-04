@@ -50,7 +50,7 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customer = Customer::find($id);
-        return view('admin.customers.profile', compact('customer'));
+        return view('admin.customers.show', compact('customer'));
     }
 
     /**

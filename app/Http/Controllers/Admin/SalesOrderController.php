@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class SalesOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(10);
-        return view('admin.products.index', compact('products'));
+        //
     }
 
     /**
@@ -48,8 +46,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        return view('admin.products.show', compact('product'));
+        //
     }
 
     /**
