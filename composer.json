@@ -13,7 +13,8 @@
     "overtrue/laravel-lang": "~3.0",
     "jenssegers/date": "^3.2",
     "doctrine/dbal": "^2.5",
-    "klaravel/ntrust": "^1.1"
+    "klaravel/ntrust": "^1.1",
+    "laravel/scout": "^1.1"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

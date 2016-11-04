@@ -88,9 +88,9 @@ $style = [
                                                 {{ $greeting }}
                                             @else
                                                 @if ($level == 'error')
-                                                    Whoops!
+                                                    糟糕!
                                                 @else
-                                                    Hello!
+                                                    你好!
                                                 @endif
                                             @endif
                                         </h1>
@@ -98,7 +98,7 @@ $style = [
                                         <!-- Intro -->
                                         @foreach ($introLines as $line)
                                             <p style="{{ $style['paragraph'] }}">
-                                                {{ $line }}
+                                                您收到这封电子邮件，是因为我们收到了您的帐户的密码重置请求。
                                             </p>
                                         @endforeach
 
@@ -124,7 +124,7 @@ $style = [
                                                             style="{{ $fontFamily }} {{ $style['button'] }} {{ $style[$actionColor] }}"
                                                             class="button"
                                                             target="_blank">
-                                                            {{ $actionText }}
+                                                            重置密码
                                                         </a>
                                                     </td>
                                                 </tr>
@@ -134,13 +134,13 @@ $style = [
                                         <!-- Outro -->
                                         @foreach ($outroLines as $line)
                                             <p style="{{ $style['paragraph'] }}">
-                                                {{ $line }}
+                                                如果您没有请求密码重置，则不需要进一步的操作。
                                             </p>
                                         @endforeach
 
                                         <!-- Salutation -->
                                         <p style="{{ $style['paragraph'] }}">
-                                            Regards,<br>{{ config('app.name') }}
+                                            此致，<br>{{ config('app.name') }}
                                         </p>
 
                                         <!-- Sub Copy -->
@@ -149,8 +149,8 @@ $style = [
                                                 <tr>
                                                     <td style="{{ $fontFamily }}">
                                                         <p style="{{ $style['paragraph-sub'] }}">
-                                                            If you’re having trouble clicking the "{{ $actionText }}" button,
-                                                            copy and paste the URL below into your web browser:
+                                                            如果您无法点击"重置密码"按钮，
+                                                            复制下面的网址并粘贴到您的浏览器中打开：
                                                         </p>
 
                                                         <p style="{{ $style['paragraph-sub'] }}">

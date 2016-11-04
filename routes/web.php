@@ -19,24 +19,20 @@ Auth::routes();
 
 Route::get('/index', 'Admin\IndexController@index');
 
+//User
 Route::resource('/users', 'Admin\UserController');
 
+//Customers
 Route::resource('/customers', 'Admin\CustomerController');
 
+//Suppliers
 Route::resource('/suppliers', 'Admin\SupplierController');
 
+//Products
 Route::resource('/products', 'Admin\ProductController');
 
+//Purchase Orders
 Route::resource('/purchase_orders', 'Admin\PurchaseOrderController');
 
+//Sales Orders
 Route::resource('/sales_orders', 'Admin\SalesOrderController');
-
-/*
- *       | GET|HEAD  | suppliers                    | suppliers.index      | App\Http\Controllers\Admin\SupplierController@index                    | web          |
- *       | POST      | suppliers                    | suppliers.store      | App\Http\Controllers\Admin\SupplierController@store                    | web          |
- *       | GET|HEAD  | suppliers/create             | suppliers.create     | App\Http\Controllers\Admin\SupplierController@create                   | web          |
- *       | DELETE    | suppliers/{supplier}         | suppliers.destroy    | App\Http\Controllers\Admin\SupplierController@destroy                  | web          |
- *       | GET|HEAD  | suppliers/{supplier}         | suppliers.show       | App\Http\Controllers\Admin\SupplierController@show                     | web          |
- *       | PUT|PATCH | suppliers/{supplier}         | suppliers.update     | App\Http\Controllers\Admin\SupplierController@update                   | web          |
- *       | GET|HEAD  | suppliers/{supplier}/edit    | suppliers.edit       | App\Http\Controllers\Admin\SupplierController@edit                     | web          |
- */
