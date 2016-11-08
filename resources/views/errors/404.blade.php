@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rusl 503</title>
+    <title>Rusl 404</title>
 
     <link href="https://fonts.gmirror.org/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -17,7 +17,7 @@
             color: #B0BEC5;
             display: table;
             font-weight: 100;
-            font-family: 'Lato','PingFang SC','Verdana', 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'sans-serif';
+            font-family: 'Lato', 'PingFang SC', 'Verdana', 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'sans-serif';
         }
 
         .container {
@@ -32,7 +32,7 @@
         }
 
         .title {
-            font-size: 120px;
+            font-size: 160px;
             margin-bottom: 40px;
         }
 
@@ -44,8 +44,8 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">503</div>
-        <div class="info">网站维护中，请稍后再试!</div>
+        <div class="title">404</div>
+        <div class="info">抱歉！你访问的页面不存在或已删除。</div>
     </div>
 </div>
 </body>
