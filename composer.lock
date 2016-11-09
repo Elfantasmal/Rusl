@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "432c92a69a2be0b12c4325af8e74e833",
+    "hash": "752200569b74657e2ae8b16a29d33ad4",
     "content-hash": "4ef0fb00ff4a8fd321b49cd62391303b",
     "packages": [
         {
@@ -983,16 +983,16 @@
         },
         {
             "name": "laravel/scout",
-            "version": "v1.1.8",
+            "version": "v1.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/scout.git",
-                "reference": "31e07d8734d0b0c9d7311d762cef9b9f39840251"
+                "reference": "1a320db40edd13266d6b70467960bc0aa845c6cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/laravel/scout/31e07d8734d0b0c9d7311d762cef9b9f39840251.zip",
-                "reference": "31e07d8734d0b0c9d7311d762cef9b9f39840251",
+                "url": "https://packagist.phpcomposer.com/files/laravel/scout/1a320db40edd13266d6b70467960bc0aa845c6cb.zip",
+                "reference": "1a320db40edd13266d6b70467960bc0aa845c6cb",
                 "shasum": ""
             },
             "require": {
@@ -1042,7 +1042,7 @@
                 "laravel",
                 "search"
             ],
-            "time": "2016-10-17 21:22:21"
+            "time": "2016-11-07 22:01:29"
         },
         {
             "name": "league/flysystem",
@@ -1393,16 +1393,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.3",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "c0125896dbb151380ab47e96c621741e79623beb"
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/paragonie/random_compat/c0125896dbb151380ab47e96c621741e79623beb.zip",
-                "reference": "c0125896dbb151380ab47e96c621741e79623beb",
+                "url": "https://packagist.phpcomposer.com/files/paragonie/random_compat/a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e.zip",
+                "reference": "a9b97968bcde1c4de2a5ec6cbd06a0f6c919b46e",
                 "shasum": ""
             },
             "require": {
@@ -1437,7 +1437,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-10-17 15:23:22"
+            "time": "2016-11-07 23:38:38"
         },
         {
             "name": "psr/log",

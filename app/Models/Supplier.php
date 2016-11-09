@@ -23,6 +23,6 @@ class Supplier extends Model
 
     public function products()
     {
-        $this->hasMany('products');
+        $this->hasMany('App\Models\Product');
     }
 }
