@@ -27,7 +27,7 @@
                             <table class="table table-bordered">
                                 <tbody>
                                 <tr>
-                                    <th style="width: 20px">ID</th>
+                                    <th>ID</th>
                                     <th>公司名称</th>
                                     <th>联系电话</th>
                                     <th>负责人</th>
@@ -51,12 +51,12 @@
                                         <td>{{$customer->updated_at}}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href='{{url('customers/'.$customer->id)}}'>
+                                                <a href="{{url('customers/'.$customer->id)}}">
                                                     <button type="button" class="btn btn-info ">
                                                         <i class="fa fa-book"></i>
                                                     </button>
                                                 </a>
-                                                <a href='{{url('customers/'.$customer->id.'/edit')}}'>
+                                                <a href="{{url('customers/'.$customer->id.'/edit')}}">
                                                     <button type="button" class="btn btn-info ">
                                                         <i class="fa fa-edit"></i>
                                                     </button>

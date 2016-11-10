@@ -8,8 +8,8 @@
                 <small>控制面板</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{url('/index')}}"><i class="fa fa-dashboard"></i> 概览</a></li>
-                <li><a href="{{url('/customers')}}">客户管理</a></li>
+                <li><a href={{url('/index')}}><i class="fa fa-dashboard"></i> 概览</a></li>
+                <li><a href={{url('/customers')}}>客户管理</a></li>
                 <li class="active">创建客户</li>
             </ol>
         </section>
@@ -22,7 +22,8 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">添加</h3>
                         </div>
-                        <form method="POST" action="{{url('/customers/')}}">
+                        <form method="POST" action={{url('/customers/')}}>
+                            {{ csrf_field() }}
                             <div class="box-body">
                                 <div class="input-group">
                                     <span class="input-group-addon">@</span>

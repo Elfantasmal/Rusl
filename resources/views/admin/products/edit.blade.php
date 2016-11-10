@@ -1,4 +1,8 @@
 @extends('layouts.dashboard')
+@section('css')
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('/vendor/adminlte/plugins/select2/select2.min.css')}}">
+@stop
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -20,52 +24,32 @@
                 <div class="col-md-12">
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">编辑</h3>
+                            <h3 class="box-title">创建</h3>
                         </div>
-                        <form method="POST" action="{{url('/suppliers/'.$id)}}">
-                            {{ method_field('PUT') }}
-                            {{ csrf_field() }}
+                        <form method="POST" action="{{url('/products/'.$product->id)}}">
                             <div class="box-body">
+                                {{ method_field('PUT') }}
+                                {{ csrf_field() }}
+                                <input type="hidden" name="supplier_id" value="{{$product->supplier_id}}">
                                 <div class="input-group">
                                     <span class="input-group-addon">@</span>
-                                    <input id="company_name" name="company_name" type="text" class="form-control"
-                                           value="{{$supplier->company_name}}"
-                                           placeholder="公司名称">
+                                    <input id="name" name="name" type="text" class="form-control"
+                                           placeholder="名称" value="{{$product->name}}">
                                 </div>
                                 <br>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                                    <input id="company_phone" name="company_phone" type="text" class="form-control"
-                                           value="{{$supplier->company_phone}}"
-                                           placeholder="联系电话">
+                                    <span class="input-group-addon"><i class="fa fa-jpy"></i></span>
+                                    <input id="price" name="price" type="number" class="form-control"
+                                           placeholder="价格" value="{{$product->price}}">
+                                    <span class="input-group-addon">.00</span>
                                 </div>
-                                <br>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                                    <input id="contact_name" name="contact_name" type="text" class="form-control"
-                                           value="{{$supplier->contact_name}}"
-                                           placeholder="联系人姓名">
-                                </div>
-                                <br>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
-                                    <input id="mobile_phone" name="mobile_phone" type="text" class="form-control"
-                                           value="{{$supplier->mobile_phone}}"
-                                           placeholder="联系人电话">
-                                </div>
-                                <br>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                                    <input id="email" name="email" type="email" class="form-control"
-                                           value="{{$supplier->email}}"
-                                           placeholder="邮箱">
-                                </div>
-                                <br>
-                                <!-- /input-group -->
+                                <!-- /form-group -->
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-primary pull-right">提交</button>
+                                <button type="submit" class="btn btn-primary pull-right"
+                                >提交
+                                </button>
                             </div>
                         </form>
                     </div>

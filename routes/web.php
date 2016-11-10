@@ -27,6 +27,7 @@ Route::resource('/customers', 'Admin\CustomerController');
 
 //Suppliers
 Route::resource('/suppliers', 'Admin\SupplierController');
+Route::get('/suppliers/search/{keyword}', 'Admin\SupplierController@search');
 
 //Products
 Route::resource('/products', 'Admin\ProductController');

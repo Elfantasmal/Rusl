@@ -23,6 +23,7 @@
                             <h3 class="box-title">创建</h3>
                         </div>
                         <form method="POST" action="{{url('/suppliers/')}}">
+                            {{ csrf_field() }}
                             <div class="box-body">
                                 <div class="input-group">
                                     <span class="input-group-addon">@</span>

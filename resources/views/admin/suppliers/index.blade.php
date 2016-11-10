@@ -51,12 +51,12 @@
                                         <td>{{$supplier->updated_at}}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href='{{url('suppliers/'.$supplier->id)}}'>
+                                                <a href="{{url('suppliers/'.$supplier->id)}}">
                                                     <button type="button" class="btn btn-info ">
                                                         <i class="fa fa-book"></i>
                                                     </button>
                                                 </a>
-                                                <a href='{{url('suppliers/'.$supplier->id.'/edit')}}'>
+                                                <a href="{{url('suppliers/'.$supplier->id.'/edit')}}">
                                                     <button type="button" class="btn btn-info ">
                                                         <i class="fa fa-edit"></i>
                                                     </button>

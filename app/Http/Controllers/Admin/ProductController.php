@@ -26,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -37,7 +37,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::create($request->all());
+        return redirect('/products/' . $product->id, compact('product'));
     }
 
     /**
@@ -60,7 +61,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        //dd($product);
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -72,7 +75,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::create($request->all());
+        return redirect('/products/' . $product->id, compact('product'));
     }
 
     /**
@@ -83,6 +87,21 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect('/products');
+    }
+
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $result = Product::where('name', 'like', "%$keyword%")
+            ->orderBy('id', 'asc')
+            ->get();
+        return response()->json($result);
     }
 }

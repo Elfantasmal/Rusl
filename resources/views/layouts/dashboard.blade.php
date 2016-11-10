@@ -20,8 +20,7 @@
           apply the skin class to the body tag so the changes take effect.
     -->
     <link rel="stylesheet" href="{{asset('/vendor/adminlte/dist/css/skins/skin-black-light.min.css')}}">
-    <!-- Custom link -->
-    @yield('link')
+    @yield('css')
     <!-- Custom font style -->
     <style>
         html, body {

@@ -87,8 +87,21 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Supplier::destroy($id);
+        return redirect('/suppliers');
     }
 
-
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $result = Supplier::where('company_name', 'like', "%$keyword%")
+            ->orderBy('id', 'asc')
+            ->get();
+        return response()->json($result);
+    }
 }

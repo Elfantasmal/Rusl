@@ -7,7 +7,7 @@
                 404
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/index"><i class="fa fa-dashboard"></i> 概览</a></li>
+                <li><a href="{{url('/index')}}"><i class="fa fa-dashboard"></i> 概览</a></li>
                 <li class="active">404错误</li>
             </ol>
         </section>
@@ -21,7 +21,7 @@
                     <h3><i class="fa fa-warning text-yellow"></i> 抱歉! 页面未找到.</h3>
                     <p>
                         你访问的页面不存在或已删除。
-                        与此同时你可以 <a href="/index">返回概览</a> 进行其他操作。
+                        与此同时你可以 <a href="{{url('/index')}}">返回概览</a> 进行其他操作。
                     </p>
                 </div>
                 <!-- /.error-content -->

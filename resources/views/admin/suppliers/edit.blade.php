@@ -22,7 +22,7 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">编辑</h3>
                         </div>
-                        <form method="POST" action="{{url('/suppliers/'.$id)}}">
+                        <form method="POST" action="{{url('/suppliers/'.$supplier->id)}}">
                             {{ method_field('PUT') }}
                             {{ csrf_field() }}
                             <div class="box-body">

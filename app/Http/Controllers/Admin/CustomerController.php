@@ -90,4 +90,17 @@ class CustomerController extends Controller
         Customer::destroy($id);
         return redirect('/customers');
     }
+
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $result = Customer::where('company_name', 'like', "%$keyword%")->paginate(10);
+
+        return response()->json($result);
+    }
 }

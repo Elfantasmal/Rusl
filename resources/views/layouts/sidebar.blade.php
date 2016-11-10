@@ -65,9 +65,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{'/products'}}"><i class="fa fa-circle-o"></i> 商品列表</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 添加商品</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 编辑商品</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 商品信息</a></li>
+                    <li><a href="{{'/products/create'}}"><i class="fa fa-circle-o"></i> 添加商品</a></li>
                 </ul>
             </li>
             <li class="treeview">
