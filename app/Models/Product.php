@@ -13,7 +13,8 @@ class Product extends Model
      */
     protected $fillable = [
         'name',
-        'price'
+        'price',
+        'supplier_id'
     ];
 
     public function supplier()

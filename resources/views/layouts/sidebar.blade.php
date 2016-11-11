@@ -47,7 +47,7 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="{{url('/suppliers')}}"><i class="fa fa-fax"></i> <span>供应商管理</span>
+                <a href="{{url('/suppliers')}}"><i class="fa fa-globe"></i> <span>供应商管理</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -58,7 +58,7 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-cubes"></i> <span>商品管理</span>
+                <a href="#"><i class="fa fa-barcode"></i> <span>商品管理</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -81,7 +81,7 @@
                 </ul>
             </li>
             <li class="treeview">
-                <a href="#"><i class="fa fa-credit-card"></i> <span>订单管理</span>
+                <a href="#"><i class="fa fa-inbox"></i> <span>订单管理</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>

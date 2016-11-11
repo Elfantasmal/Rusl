@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -62,8 +63,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        //dd($product);
-        return view('admin.products.edit', compact('product'));
+        $supplier_list = Supplier::orderBy('id')->pluck('company_name', 'id');
+        return view('admin.products.edit', compact('product', 'supplier_list'));
     }
 
     /**
@@ -75,8 +76,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::create($request->all());
-        return redirect('/products/' . $product->id, compact('product'));
+        //dd($request->all());
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
+        return redirect()->route('products.show', [$product]);
     }
 
     /**

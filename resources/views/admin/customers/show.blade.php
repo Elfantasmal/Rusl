@@ -17,7 +17,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">详情</h3>

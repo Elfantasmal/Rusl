@@ -76,7 +76,7 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::findOrFail($id);
         $supplier->update($request->all());
-        return redirect("/suppliers");
+        return redirect()->route('suppliers.show', [$supplier]);
     }
 
     /**

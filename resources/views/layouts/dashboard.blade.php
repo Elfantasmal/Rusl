@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css">
+    @yield('css')
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('/vendor/adminlte/dist/css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -20,7 +21,6 @@
           apply the skin class to the body tag so the changes take effect.
     -->
     <link rel="stylesheet" href="{{asset('/vendor/adminlte/dist/css/skins/skin-black-light.min.css')}}">
-    @yield('css')
     <!-- Custom font style -->
     <style>
         html, body {

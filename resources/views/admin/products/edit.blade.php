@@ -30,7 +30,6 @@
                             <div class="box-body">
                                 {{ method_field('PUT') }}
                                 {{ csrf_field() }}
-                                <input type="hidden" name="supplier_id" value="{{$product->supplier_id}}">
                                 <div class="input-group">
                                     <span class="input-group-addon">@</span>
                                     <input id="name" name="name" type="text" class="form-control"
@@ -43,6 +42,18 @@
                                            placeholder="价格" value="{{$product->price}}">
                                     <span class="input-group-addon">.00</span>
                                 </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-fax"></i></span>
+                                    <select class="form-control  select2" name="supplier_id" style="width: 100%">
+                                        @foreach($supplier_list as $id => $name)
+                                            <option value="{{$id}}" {{$id === $product->supplier_id ? 'selected=selected' : ''}}>
+                                                {{$name}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                                 <!-- /form-group -->
                             </div>
                             <!-- /.box-body -->
@@ -59,4 +70,14 @@
         </section>
         <!-- /.section -->
     </div>
+@stop
+@section('script')
+    <script src="{{asset('/vendor/adminlte/plugins/select2/select2.full.js')}}"></script>
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $(".select2").select2();
+
+        });
+    </script>
 @stop

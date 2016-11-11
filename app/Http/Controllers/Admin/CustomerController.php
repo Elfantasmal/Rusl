@@ -76,7 +76,7 @@ class CustomerController extends Controller
     {
         $customer = Customer::findOrFail($id);
         $customer->update($request->all());
-        return redirect("/customers");
+        return redirect()->route('customers.show', [$customer]);
     }
 
     /**
