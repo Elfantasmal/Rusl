@@ -27,7 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $supplier_list = Supplier::all()->pluck('company_name', 'id');
+        return view('admin.products.create', compact('product', 'supplier_list'));
     }
 
     /**
@@ -63,7 +64,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        $supplier_list = Supplier::orderBy('id')->pluck('company_name', 'id');
+        $supplier_list = Supplier::all()->pluck('company_name', 'id');
         return view('admin.products.edit', compact('product', 'supplier_list'));
     }
 

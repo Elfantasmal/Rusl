@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class SalesOrderController extends Controller
@@ -24,7 +26,9 @@ class SalesOrderController extends Controller
      */
     public function create()
     {
-        //
+        $customer_list = Customer::all()->pluck('company_name', 'id');
+        $product_list = Product::all();
+        return view('admin.orders.sales_create', compact('customer_list', 'product_list'));
     }
 
     /**

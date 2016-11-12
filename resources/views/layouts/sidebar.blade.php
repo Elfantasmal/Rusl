@@ -43,7 +43,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{url('/customers')}}"><i class="fa fa-circle-o"></i> 客户列表</a></li>
-                    <li><a href="{{url('/customers/create')}}"><i class="fa fa-circle-o"></i> 添加客户</a></li>
+                    <li><a href="{{url('/customers/create')}}"><i class="fa fa-circle-o"></i> 创建客户</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -54,7 +54,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{url('/suppliers')}}"><i class="fa fa-circle-o"></i> 供应商列表</a></li>
-                    <li><a href="{{url('/suppliers/create')}}"><i class="fa fa-circle-o"></i> 添加供应商</a></li>
+                    <li><a href="{{url('/suppliers/create')}}"><i class="fa fa-circle-o"></i> 创建供应商</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -65,7 +65,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{'/products'}}"><i class="fa fa-circle-o"></i> 商品列表</a></li>
-                    <li><a href="{{'/products/create'}}"><i class="fa fa-circle-o"></i> 添加商品</a></li>
+                    <li><a href="{{'/products/create'}}"><i class="fa fa-circle-o"></i> 创建商品</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -87,10 +87,10 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 添加订单</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 编辑订单</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 订单列表</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 订单信息</a></li>
+                    <li><a href="{{route('sales_orders.create')}}"><i class="fa fa-circle-o"></i> 创建销售订单</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 创建采购订单</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 销售订单列表</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 采购订单列表</a></li>
                 </ul>
             </li>
             <li class="treeview">

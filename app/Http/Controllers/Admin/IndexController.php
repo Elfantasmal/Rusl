@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Jenssegers\Date\Date;
 
 class IndexController extends Controller
 {

@@ -53,7 +53,6 @@
                                         @endforeach
                                     </select>
                                 </div>
-
                                 <!-- /form-group -->
                             </div>
                             <!-- /.box-body -->

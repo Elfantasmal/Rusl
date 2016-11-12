@@ -1,4 +1,8 @@
 @extends('layouts.dashboard')
+@section('css')
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('/vendor/adminlte/plugins/select2/select2.min.css')}}">
+@stop
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -39,8 +43,13 @@
                                 <br>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-fax"></i></span>
-                                    <input id="company_name" type="text" class="form-control"
-                                           placeholder="所属供应商">
+                                    <select class="form-control  select2" name="supplier_id" style="width: 100%">
+                                        @foreach($supplier_list as $id => $name)
+                                            <option value="{{$id}}">
+                                                {{$name}}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <!-- /input-group -->
                             </div>
@@ -56,4 +65,14 @@
         </section>
         <!-- /.section -->
     </div>
+@stop
+@section('script')
+    <script src="{{asset('/vendor/adminlte/plugins/select2/select2.full.js')}}"></script>
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $(".select2").select2();
+
+        });
+    </script>
 @stop
