@@ -27,7 +27,7 @@ class SalesOrderController extends Controller
     public function create()
     {
         $customer_list = Customer::all()->pluck('company_name', 'id');
-        $product_list = Product::all();
+        $product_list = Product::all()->pluck('name', 'id');
         return view('admin.orders.sales_create', compact('customer_list', 'product_list'));
     }
 
@@ -39,7 +39,8 @@ class SalesOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        dd(collect($request->all()));
     }
 
     /**

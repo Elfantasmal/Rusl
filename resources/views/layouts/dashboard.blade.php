@@ -20,7 +20,7 @@
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect.
     -->
-    <link rel="stylesheet" href="{{asset('/vendor/adminlte/dist/css/skins/skin-black-light.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/vendor/adminlte/dist/css/skins/skin-black.min.css')}}">
     <!-- Custom font style -->
     <style>
         html, body {
@@ -34,7 +34,7 @@
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body class="hold-transition skin-black-light sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 <div class="wrapper">
 
     <!-- Main Header -->
