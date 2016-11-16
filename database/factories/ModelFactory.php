@@ -48,12 +48,14 @@ $factory->define(App\Models\Supplier::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Models\Product::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Commodity::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->userName,
-        'price' => $faker->randomNumber(4),
-        'supplier_id' => $faker->numberBetween(1, 20),
+        'sales_price' => $faker->randomNumber(4),
+        'purchase_price' => $faker->randomNumber(4),
+        'unit' => $faker->randomElement(['台','件','箱']),
+        'supplier_id' => $faker->numberBetween(1, 42)
     ];
 });
 

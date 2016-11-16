@@ -29,45 +29,13 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{url('/users')}}"><i class="fa fa-circle-o"></i> 用户列表</a></li>
-                    <li><a href="{{url('/users').'/'.Auth::user()->id}}"><i class="fa fa-circle-o"></i> 个人信息</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> 角色</a></li>
                     <li><a href="#"><i class="fa fa-circle-o"></i> 权限</a></li>
                 </ul>
             </li>
-
-            <li class="treeview">
-                <a href="{{url('/customers')}}"><i class="fa fa-briefcase"></i> <span>客户管理</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{url('/customers')}}"><i class="fa fa-circle-o"></i> 客户列表</a></li>
-                    <li><a href="{{url('/customers/create')}}"><i class="fa fa-circle-o"></i> 创建客户</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="{{url('/suppliers')}}"><i class="fa fa-globe"></i> <span>供应商管理</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{url('/suppliers')}}"><i class="fa fa-circle-o"></i> 供应商列表</a></li>
-                    <li><a href="{{url('/suppliers/create')}}"><i class="fa fa-circle-o"></i> 创建供应商</a></li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-barcode"></i> <span>商品管理</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="{{'/products'}}"><i class="fa fa-circle-o"></i> 商品列表</a></li>
-                    <li><a href="{{'/products/create'}}"><i class="fa fa-circle-o"></i> 创建商品</a></li>
-                </ul>
-            </li>
+            <li><a href="{{url('/customers')}}"><i class="fa fa-briefcase"></i> <span>客户管理</span></a></li>
+            <li><a href="{{url('/suppliers')}}"><i class="fa fa-globe"></i> <span>供应商管理</span></a></li>
+            <li><a href="{{url('/commodities')}}"><i class="fa fa-barcode"></i> <span>商品管理</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-building-o"></i> <span>仓库管理</span>
                     <span class="pull-right-container">
@@ -87,10 +55,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('sales_orders.create')}}"><i class="fa fa-circle-o"></i> 创建销售订单</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 创建采购订单</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 销售订单列表</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 采购订单列表</a></li>
+                    <li><a href="{{route('sales_orders.index')}}"><i class="fa fa-circle-o"></i> 销售订单</a></li>
+                    <li><a href="{{route('purchase_orders.create')}}"><i class="fa fa-circle-o"></i> 采购订单</a></li>
                 </ul>
             </li>
             <li class="treeview">

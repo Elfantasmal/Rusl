@@ -76,6 +76,10 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
+                                <button type="button" class="btn btn-danger " data-toggle="modal"
+                                        data-target="#deleteModal">
+                                    删除
+                                </button>
                                 <button type="submit" class="btn btn-primary pull-right">提交</button>
                             </div>
                         </form>
@@ -83,6 +87,31 @@
                 </div>
             </div>
             <!-- /.row -->
+            <div id="deleteModal" class="modal fade modal-danger">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">删除</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>确定要删除该供应商？</p>
+                        </div>
+                        <div class="modal-footer">
+                            <form method="POST" action="{{route('customers.destroy',$customer->id)}}">
+                                {{ method_field('DELETE') }}
+                                {{ csrf_field() }}
+                                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">关闭</button>
+                                <button type="submit" class="btn btn-outline">确定</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
         </section>
         <!-- /.section -->
     </div>

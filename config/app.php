@@ -166,11 +166,13 @@ return [
         /*
          * Package Service Providers...
          */
-        Klaravel\Ntrust\NtrustServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Overtrue\LaravelLang\TranslationServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
+        Klaravel\Ntrust\NtrustServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+        Overtrue\LaravelLang\TranslationServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

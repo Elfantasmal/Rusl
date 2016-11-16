@@ -51,19 +51,14 @@
                                         <td>{{$customer->updated_at}}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a href="{{url('customers/'.$customer->id)}}">
+                                                <a href="{{route('customers.show',[$customer->id])}}">
                                                     <button type="button" class="btn btn-info ">
                                                         <i class="fa fa-book"></i>
                                                     </button>
                                                 </a>
-                                                <a href="{{url('customers/'.$customer->id.'/edit')}}">
+                                                <a href="{{route('customers.edit',[$customer->id])}}">
                                                     <button type="button" class="btn btn-info ">
                                                         <i class="fa fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="#">
-                                                    <button type="button" class="btn btn-info">
-                                                        <i class="fa fa-trash-o"></i>
                                                     </button>
                                                 </a>
                                             </div>

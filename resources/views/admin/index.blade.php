@@ -20,14 +20,15 @@
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{$count['user_count']}}</h3>
 
-                            <p>New Orders</p>
+                            <p>用户管理</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="ion ion-person"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="{{route('users.index')}}" class="small-box-footer">
+                            查看详情 <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -35,14 +36,15 @@
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <h3>{{$count['commodity_count']}}</h3>
 
-                            <p>Bounce Rate</p>
+                            <p>商品管理</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                            <i class="ion ion-bag"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="{{route('commodities.index')}}" class="small-box-footer">
+                            查看详情 <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -50,14 +52,15 @@
                     <!-- small box -->
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>{{$count['customer_count']}}</h3>
 
-                            <p>User Registrations</p>
+                            <p>客户管理</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-person-add"></i>
+                            <i class="ion ion-briefcase"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="{{route('customers.index')}}" class="small-box-footer">
+                            查看详情 <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -65,14 +68,15 @@
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>65</h3>
+                            <h3>{{$count['supplier_count']}}</h3>
 
-                            <p>Unique Visitors</p>
+                            <p>供应商管理</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
+                            <i class="ion ion-android-globe"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="{{route('suppliers.index')}}" class="small-box-footer">
+                            查看详情 <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->

@@ -14,7 +14,8 @@
     "jenssegers/date": "^3.2",
     "doctrine/dbal": "^2.5",
     "klaravel/ntrust": "^1.1",
-    "algolia/algoliasearch-client-php": "^1.11"
+    "algolia/algoliasearch-client-php": "^1.11",
+    "laracasts/flash": "^2.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

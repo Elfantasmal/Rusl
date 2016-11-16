@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\Commodity;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class CommodityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(10);
-        return view('admin.products.index', compact('products'));
+        $commodities = Commodity::paginate(10);
+        return view('admin.commodities.index', compact('commodities'));
     }
 
     /**
@@ -28,7 +28,7 @@ class ProductController extends Controller
     public function create()
     {
         $supplier_list = Supplier::all()->pluck('company_name', 'id');
-        return view('admin.products.create', compact('product', 'supplier_list'));
+        return view('admin.commodities.create', compact('supplier_list'));
     }
 
     /**
@@ -39,8 +39,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::create($request->all());
-        return redirect('/products/' . $product->id, compact('product'));
+        $commodity = Commodity::create($request->all());
+        return redirect('/commodities/' . $commodity->id, compact('commodity'));
     }
 
     /**
@@ -51,8 +51,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::findOrFail($id);
-        return view('admin.products.show', compact('product'));
+        $commodity = Commodity::findOrFail($id);
+        return view('admin.commodities.show', compact('commodity'));
     }
 
     /**
@@ -63,9 +63,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::findOrFail($id);
+        $commodity = Commodity::findOrFail($id);
         $supplier_list = Supplier::all()->pluck('company_name', 'id');
-        return view('admin.products.edit', compact('product', 'supplier_list'));
+        return view('admin.commodities.edit', compact('commodity', 'supplier_list'));
     }
 
     /**
@@ -77,10 +77,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($request->all());
-        $product = Product::findOrFail($id);
-        $product->update($request->all());
-        return redirect()->route('products.show', [$product]);
+        $commodity = Commodity::findOrFail($id);
+        $commodity->update($request->all());
+        return redirect()->route('commodities.show', [$commodity]);
     }
 
     /**
@@ -91,21 +90,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::destroy($id);
-        return redirect('/products');
+        Commodity::destroy($id);
+        return redirect('/commodities');
     }
 
-    /**
-     * Search the specified resource with keyword from storage.
-     *
-     * @param string $keyword
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function search($keyword)
-    {
-        $result = Product::where('name', 'like', "%$keyword%")
-            ->orderBy('id', 'asc')
-            ->get();
-        return response()->json($result);
-    }
 }

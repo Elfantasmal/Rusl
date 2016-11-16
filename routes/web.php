@@ -19,21 +19,20 @@ Auth::routes();
 
 Route::get('/index', 'Admin\IndexController@index');
 
-//User
+# User
 Route::resource('/users', 'Admin\UserController');
 
-//Customers
+# Customers
 Route::resource('/customers', 'Admin\CustomerController');
 
-//Suppliers
+# Suppliers
 Route::resource('/suppliers', 'Admin\SupplierController');
-Route::get('/suppliers/search/{keyword}', 'Admin\SupplierController@search');
 
-//Products
-Route::resource('/products', 'Admin\ProductController');
+# Products
+Route::resource('/commodities', 'Admin\CommodityController');
 
-//Purchase Orders
+# Purchase Orders
 Route::resource('/purchase_orders', 'Admin\PurchaseOrderController');
 
-//Sales Orders
+# Sales Orders
 Route::resource('/sales_orders', 'Admin\SalesOrderController');

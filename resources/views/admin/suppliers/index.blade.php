@@ -61,11 +61,6 @@
                                                         <i class="fa fa-edit"></i>
                                                     </button>
                                                 </a>
-                                                <a href="#">
-                                                    <button type="button" class="btn btn-info">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </button>
-                                                </a>
                                             </div>
                                         </td>
                                     </tr>

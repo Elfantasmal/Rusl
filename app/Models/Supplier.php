@@ -22,8 +22,8 @@ class Supplier extends Model
         'description'
     ];
 
-    public function products()
+    public function commodities()
     {
-        $this->hasMany('App\Models\Product');
+        $this->hasMany('App\Models\Commodity');
     }
 }
