@@ -20,53 +20,55 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">商品列表</h3>
+                            <h3 class="box-title">供应商列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <table class="table table-bordered">
-                                <tbody>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>公司名称</th>
-                                    <th>联系电话</th>
-                                    <th>负责人</th>
-                                    <th>负责人电话</th>
-                                    <th>邮箱</th>
-                                    <th>地址</th>
-                                    <th>创建时间</th>
-                                    <th>更新时间</th>
-                                    <th>操作</th>
-                                </tr>
-                                @foreach($suppliers as $supplier)
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tbody>
                                     <tr>
-                                        <td>{{$supplier->id}}</td>
-                                        <td>{{$supplier->company_name}}</td>
-                                        <td>{{$supplier->company_phone}}</td>
-                                        <td>{{$supplier->contact_name}}</td>
-                                        <td>{{$supplier->mobile_phone}}</td>
-                                        <td>{{$supplier->email}}</td>
-                                        <td>{{$supplier->address}}</td>
-                                        <td>{{$supplier->created_at}}</td>
-                                        <td>{{$supplier->updated_at}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="{{url('suppliers/'.$supplier->id)}}">
-                                                    <button type="button" class="btn btn-info ">
-                                                        <i class="fa fa-book"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="{{url('suppliers/'.$supplier->id.'/edit')}}">
-                                                    <button type="button" class="btn btn-info ">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </td>
+                                        <th>ID</th>
+                                        <th>公司名称</th>
+                                        <th>联系电话</th>
+                                        <th>负责人</th>
+                                        <th>负责人电话</th>
+                                        <th>邮箱</th>
+                                        <th>地址</th>
+                                        <th>创建时间</th>
+                                        <th>更新时间</th>
+                                        <th>操作</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    @foreach($suppliers as $supplier)
+                                        <tr>
+                                            <td>{{$supplier->id}}</td>
+                                            <td>{{$supplier->company_name}}</td>
+                                            <td>{{$supplier->company_phone}}</td>
+                                            <td>{{$supplier->contact_name}}</td>
+                                            <td>{{$supplier->mobile_phone}}</td>
+                                            <td>{{$supplier->email}}</td>
+                                            <td>{{$supplier->address}}</td>
+                                            <td>{{$supplier->created_at}}</td>
+                                            <td>{{$supplier->updated_at}}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="{{url('suppliers/'.$supplier->id)}}">
+                                                        <button type="button" class="btn btn-info ">
+                                                            <i class="fa fa-book"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="{{url('suppliers/'.$supplier->id.'/edit')}}">
+                                                        <button type="button" class="btn btn-info ">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer clearfix">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Commodity;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class PurchaseOrderController extends Controller
@@ -24,7 +26,9 @@ class PurchaseOrderController extends Controller
      */
     public function create()
     {
-        //
+        $supplier_list = Supplier::all()->pluck('company_name', 'id');
+        $commodity_list = Commodity::all()->pluck('name', 'id');
+        return view('admin.orders.purchase.create', compact('supplier_list', 'commodity_list'));
     }
 
     /**

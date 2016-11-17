@@ -21,16 +21,16 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{url('/index')}}"><i class="fa fa-tachometer"></i> <span>概览</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>测试</span></a></li>
+            <li><a href="{{url('/users')}}"><i class="fa fa-user"></i> 用户列表</a></li>
             <li class="treeview">
-                <a href="{{url('/users')}}"><i class="fa fa-user"></i> <span>用户管理</span>
+                <a href="{{url('/users')}}"><i class="fa fa-hashtag"></i> <span>权限管理</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url('/users')}}"><i class="fa fa-circle-o"></i> 用户列表</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 角色</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 权限</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 角色列表</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 权限权限</a></li>
                 </ul>
             </li>
             <li><a href="{{url('/customers')}}"><i class="fa fa-briefcase"></i> <span>客户管理</span></a></li>

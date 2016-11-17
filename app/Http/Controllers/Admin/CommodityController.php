@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Commodity;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Response;
 
 class CommodityController extends Controller
 {
@@ -40,7 +41,7 @@ class CommodityController extends Controller
     public function store(Request $request)
     {
         $commodity = Commodity::create($request->all());
-        return redirect('/commodities/' . $commodity->id, compact('commodity'));
+        return redirect()->route('commodities.show', [$commodity]);
     }
 
     /**
@@ -94,4 +95,16 @@ class CommodityController extends Controller
         return redirect('/commodities');
     }
 
+
+    /**
+     * Return specified resource json info from storage
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function info($id)
+    {
+        $info = Commodity::find($id, ['sales_price', 'unit']);
+        return Response::json($info);
+    }
 }

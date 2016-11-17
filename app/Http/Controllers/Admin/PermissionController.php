@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Commodity;
-use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class SalesOrderController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class SalesOrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.auth.permission.index');
     }
 
     /**
@@ -26,65 +24,62 @@ class SalesOrderController extends Controller
      */
     public function create()
     {
-        $customer_list = Customer::all()->pluck('company_name', 'id');
-        $commodity_list = Commodity::all()->pluck('name', 'id');
-        return view('admin.orders.sales.create', compact('customer_list', 'commodity_list'));
+        return view('admin.auth.permission.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-
-        dd(collect($request->all()));
+        return redirect()->route('permissions.show');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        return view('admin.auth.permission.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        return view('admin.auth.permission.edit');
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('permissions.show');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        return redirect()->route('permissions.index');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Response;
 
 class CustomerController extends Controller
 {
@@ -38,7 +39,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $customer = Customer::create($request->all());
-        return redirect('/customers/' . $customer->id, compact('customer'));
+        return redirect()->route('customers.show', [$customer]);
     }
 
     /**
@@ -62,7 +63,7 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $customer = Customer::findOrFail($id);
-        return view('admin.customers.edit', compact('id', 'customer'));
+        return view('admin.customers.edit', compact('customer'));
     }
 
     /**
@@ -102,5 +103,17 @@ class CustomerController extends Controller
         $result = Customer::where('company_name', 'like', "%$keyword%")->paginate(10);
 
         return response()->json($result);
+    }
+
+    /**
+     * Return the the specified resource address from storage
+     *
+     * @param int $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function address($id)
+    {
+        $address = Customer::find($id, ['address']);
+        return Response::json($address);
     }
 }

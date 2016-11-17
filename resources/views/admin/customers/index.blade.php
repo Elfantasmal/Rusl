@@ -24,49 +24,51 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <table class="table table-bordered">
-                                <tbody>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>公司名称</th>
-                                    <th>联系电话</th>
-                                    <th>负责人</th>
-                                    <th>负责人电话</th>
-                                    <th>邮箱</th>
-                                    <th>地址</th>
-                                    <th>创建时间</th>
-                                    <th>更新时间</th>
-                                    <th>操作</th>
-                                </tr>
-                                @foreach($customers as $customer)
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tbody>
                                     <tr>
-                                        <td>{{$customer->id}}</td>
-                                        <td>{{$customer->company_name}}</td>
-                                        <td>{{$customer->company_phone}}</td>
-                                        <td>{{$customer->contact_name}}</td>
-                                        <td>{{$customer->mobile_phone}}</td>
-                                        <td>{{$customer->email}}</td>
-                                        <td>{{$customer->address}}</td>
-                                        <td>{{$customer->created_at}}</td>
-                                        <td>{{$customer->updated_at}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="{{route('customers.show',[$customer->id])}}">
-                                                    <button type="button" class="btn btn-info ">
-                                                        <i class="fa fa-book"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="{{route('customers.edit',[$customer->id])}}">
-                                                    <button type="button" class="btn btn-info ">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </td>
+                                        <th>ID</th>
+                                        <th>公司名称</th>
+                                        <th>联系电话</th>
+                                        <th>负责人</th>
+                                        <th>负责人电话</th>
+                                        <th>邮箱</th>
+                                        <th>地址</th>
+                                        <th>创建时间</th>
+                                        <th>更新时间</th>
+                                        <th>操作</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    @foreach($customers as $customer)
+                                        <tr>
+                                            <td>{{$customer->id}}</td>
+                                            <td>{{$customer->company_name}}</td>
+                                            <td>{{$customer->company_phone}}</td>
+                                            <td>{{$customer->contact_name}}</td>
+                                            <td>{{$customer->mobile_phone}}</td>
+                                            <td>{{$customer->email}}</td>
+                                            <td>{{$customer->address}}</td>
+                                            <td>{{$customer->created_at}}</td>
+                                            <td>{{$customer->updated_at}}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="{{route('customers.show',[$customer->id])}}">
+                                                        <button type="button" class="btn btn-info ">
+                                                            <i class="fa fa-book"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="{{route('customers.edit',[$customer->id])}}">
+                                                        <button type="button" class="btn btn-info ">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer clearfix">

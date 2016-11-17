@@ -20,56 +20,54 @@
                 <div class="col-md-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">供应商列表</h3>
+                            <h3 class="box-title">商品列表</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <table class="table table-bordered">
-                                <tbody>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>商品名称</th>
-                                    <th>销售价格</th>
-                                    <th>采购价格</th>
-                                    <th>单位</th>
-                                    <th>所属供应商</th>
-                                    <th>创建时间</th>
-                                    <th>更新时间</th>
-                                    <th>操作</th>
-                                </tr>
-                                @foreach($commodities as $commodity)
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tbody>
                                     <tr>
-                                        <td>{{$commodity->id}}</td>
-                                        <td>{{$commodity->name}}</td>
-                                        <td>{{$commodity->sales_price}}</td>
-                                        <td>{{$commodity->purchase_price}}</td>
-                                        <td>{{$commodity->unit}}</td>
-                                        <td>{{$commodity->supplier->company_name}}</td>
-                                        <td>{{$commodity->created_at}}</td>
-                                        <td>{{$commodity->updated_at}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="{{url('/commodities/'.$commodity->id)}}">
-                                                    <button type="button" class="btn btn-info ">
-                                                        <i class="fa fa-book"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="{{url('/commodities/'.$commodity->id.'/edit')}}">
-                                                    <button type="button" class="btn btn-info ">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="#">
-                                                    <button type="button" class="btn btn-info">
-                                                        <i class="fa fa-trash-o"></i>
-                                                    </button>
-                                                </a>
-                                            </div>
-                                        </td>
+                                        <th>ID</th>
+                                        <th>商品名称</th>
+                                        <th>销售价格</th>
+                                        <th>采购价格</th>
+                                        <th>单位</th>
+                                        <th>所属供应商</th>
+                                        <th>创建时间</th>
+                                        <th>更新时间</th>
+                                        <th>操作</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    @foreach($commodities as $commodity)
+                                        <tr>
+                                            <td>{{$commodity->id}}</td>
+                                            <td>{{$commodity->name}}</td>
+                                            <td>{{$commodity->sales_price}}</td>
+                                            <td>{{$commodity->purchase_price}}</td>
+                                            <td>{{$commodity->unit}}</td>
+                                            <td>{{$commodity->supplier->company_name}}</td>
+                                            <td>{{$commodity->created_at}}</td>
+                                            <td>{{$commodity->updated_at}}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <a href="{{url('/commodities/'.$commodity->id)}}">
+                                                        <button type="button" class="btn btn-info ">
+                                                            <i class="fa fa-book"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="{{url('/commodities/'.$commodity->id.'/edit')}}">
+                                                        <button type="button" class="btn btn-info ">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer clearfix">

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Supplier;
 use Illuminate\Http\Request;
 
-class SupplierController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $suppliers = Supplier::paginate(10);
-        return view('admin.suppliers.index', compact('suppliers'));
+        return view('admin.auth.role.index');
     }
 
     /**
@@ -26,7 +24,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        return view('admin.suppliers.create');
+        return view('admin.auth.role.create');
     }
 
     /**
@@ -37,8 +35,7 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        $supplier = Supplier::create($request->all());
-        return redirect()->route('suppliers.show', [$supplier]);
+        return redirect()->route('roles.show');
     }
 
     /**
@@ -49,8 +46,7 @@ class SupplierController extends Controller
      */
     public function show($id)
     {
-        $supplier = Supplier::findOrFail($id);
-        return view('admin.suppliers.show', compact('supplier'));
+        return view('admin.auth.role.show');
     }
 
     /**
@@ -61,8 +57,7 @@ class SupplierController extends Controller
      */
     public function edit($id)
     {
-        $supplier = Supplier::findOrFail($id);
-        return view('admin.suppliers.edit', compact('supplier'));
+        return view('admin.auth.role.edit');
     }
 
     /**
@@ -74,9 +69,7 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $supplier = Supplier::findOrFail($id);
-        $supplier->update($request->all());
-        return redirect()->route('suppliers.show', [$supplier]);
+        return redirect()->route('roles.show');
     }
 
     /**
@@ -87,21 +80,6 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        Supplier::destroy($id);
-        return redirect()->route('suppliers.index');
-    }
-
-    /**
-     * Search the specified resource with keyword from storage.
-     *
-     * @param string $keyword
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function search($keyword)
-    {
-        $result = Supplier::where('company_name', 'like', "%$keyword%")
-            ->orderBy('id', 'asc')
-            ->get();
-        return response()->json($result);
+        return redirect()->route('roles.index');
     }
 }

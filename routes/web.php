@@ -22,14 +22,22 @@ Route::get('/index', 'Admin\IndexController@index');
 # User
 Route::resource('/users', 'Admin\UserController');
 
+# Role
+Route::resource('/roles', 'Admin\RoleController');
+
+# Permission
+Route::resource('/permissions', 'Admin\PermissionController');
+
 # Customers
 Route::resource('/customers', 'Admin\CustomerController');
+Route::get('/customers/{id}/address', 'Admin\CustomerController@address')->name('customers.address');
 
 # Suppliers
 Route::resource('/suppliers', 'Admin\SupplierController');
 
-# Products
+# Commodities
 Route::resource('/commodities', 'Admin\CommodityController');
+Route::get('commodities/{commodity}/info', 'Admin\CommodityController@info')->name('commodities.info');
 
 # Purchase Orders
 Route::resource('/purchase_orders', 'Admin\PurchaseOrderController');
