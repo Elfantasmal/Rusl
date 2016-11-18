@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -14,7 +16,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('admin.auth.role.index');
+        $roles = Role::paginate(10);
+        return view('admin.auth.role.index', compact('roles'));
     }
 
     /**
@@ -24,7 +27,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.auth.role.create');
+        $permissions = Permission::all('id', 'display_name');
+        return view('admin.auth.role.create', compact('permissions'));
     }
 
     /**
@@ -35,7 +39,9 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->route('roles.show');
+        $role = Role::create($request->all());
+        $role->perms()->sync($request->get('permissions'));
+        return redirect()->route('roles.show', $role);
     }
 
     /**
@@ -46,6 +52,7 @@ class RoleController extends Controller
      */
     public function show($id)
     {
+        dd(Role::find($id));
         return view('admin.auth.role.show');
     }
 
@@ -57,7 +64,10 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.auth.role.edit');
+        $role = Role::findOrFail($id);
+        //dd($role->perms->pluck('id')->toArray());
+        $permissions = Permission::all('id', 'display_name');
+        return view('admin.auth.role.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -69,7 +79,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect()->route('roles.show');
+        $role = Role::findOrFail($id);
+        $role->update($request->all());
+        $role->perms()->sync($request->get('permissions'));
+        return redirect()->route('roles.show', $role);
     }
 
     /**

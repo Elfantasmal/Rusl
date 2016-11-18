@@ -60,7 +60,7 @@
                                     <span class="input-group-addon"><i class="fa fa-fax"></i></span>
                                     <select class="form-control  select2" name="supplier_id" style="width: 100%">
                                         @foreach($supplier_list as $id => $name)
-                                            <option value="{{$id}}" {{$id === $commodity->supplier_id ? 'selected=selected' : ''}}>
+                                            <option value="{{$id}}" {{$id === $commodity->supplier_id ? 'selected' : ''}}>
                                                 {{$name}}
                                             </option>
                                         @endforeach

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Permission;
+use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
@@ -14,7 +15,8 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return view('admin.auth.permission.index');
+        $permissions = Permission::paginate(10);
+        return view('admin.auth.permission.index', compact('permissions'));
     }
 
     /**
@@ -30,52 +32,57 @@ class PermissionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        return redirect()->route('permissions.show');
+        $permission = Permission::create($request->all());
+        return redirect()->route('permissions.show', [$permission]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
+        dd(Permission::find($id));
         return view('admin.auth.permission.show');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        return view('admin.auth.permission.edit');
+        $permission = Permission::findOrFail($id);
+        return view('admin.auth.permission.edit', compact('permission'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        return redirect()->route('permissions.show');
+        $permission = Permission::findOrFail($id);
+        $permission->update($request->all());
+        return redirect()->route('permissions.show', $permission);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

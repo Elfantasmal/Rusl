@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/index', 'Admin\IndexController@index');
+Route::get('/index', 'Admin\IndexController@index')->name('index');
 
 # User
 Route::resource('/users', 'Admin\UserController');

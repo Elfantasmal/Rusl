@@ -12,8 +12,8 @@
                 <small>控制面板</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{url('/index')}}"><i class="fa fa-dashboard"></i> 概览</a></li>
-                <li><a href="{{url('/commodities')}}">商品管理</a></li>
+                <li><a href="{{route('index')}}"><i class="fa fa-dashboard"></i> 概览</a></li>
+                <li><a href="{{route('commodities.index')}}">商品管理</a></li>
                 <li class="active">创建商品</li>
             </ol>
         </section>
