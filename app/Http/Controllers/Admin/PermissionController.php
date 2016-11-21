@@ -38,7 +38,7 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         $permission = Permission::create($request->all());
-        return redirect()->route('permissions.show', [$permission]);
+        return redirect()->route('permissions.show', $permission);
     }
 
     /**
@@ -49,8 +49,8 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
-        dd(Permission::find($id));
-        return view('admin.auth.permission.show');
+        $permission = Permission::find($id);
+        return view('admin.auth.permission.show', $permission);
     }
 
     /**

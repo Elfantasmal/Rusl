@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Response;
 
 class SupplierController extends Controller
 {
@@ -38,7 +39,7 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $supplier = Supplier::create($request->all());
-        return redirect()->route('suppliers.show', [$supplier]);
+        return redirect()->route('suppliers.show', $supplier);
     }
 
     /**
@@ -76,7 +77,7 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::findOrFail($id);
         $supplier->update($request->all());
-        return redirect()->route('suppliers.show', [$supplier]);
+        return redirect()->route('suppliers.show', $supplier);
     }
 
     /**
@@ -103,5 +104,11 @@ class SupplierController extends Controller
             ->orderBy('id', 'asc')
             ->get();
         return response()->json($result);
+    }
+
+    public function supplier_list()
+    {
+        $supplier = Supplier::all('id', 'company_name as text');
+        return Response::json($supplier);
     }
 }

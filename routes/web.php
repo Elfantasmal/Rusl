@@ -44,3 +44,6 @@ Route::resource('/purchase_orders', 'Admin\PurchaseOrderController');
 
 # Sales Orders
 Route::resource('/sales_orders', 'Admin\SalesOrderController');
+
+Route::get('/test', 'Admin\IndexController@test');
+Route::get('/resource', 'Admin\SupplierController@supplier_list')->name('test');

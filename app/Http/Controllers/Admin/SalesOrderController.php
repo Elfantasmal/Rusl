@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Commodity;
 use App\Models\Customer;
+use App\Models\OrderDetail;
+use App\Models\SalesOrder;
 use Illuminate\Http\Request;
 
 class SalesOrderController extends Controller
@@ -16,7 +18,8 @@ class SalesOrderController extends Controller
      */
     public function index()
     {
-        //
+        $sales_orders = SalesOrder::paginate(10);
+        return view('admin.orders.sales.index', compact('sales_orders'));
     }
 
     /**
@@ -39,8 +42,24 @@ class SalesOrderController extends Controller
      */
     public function store(Request $request)
     {
+        $sales_order = SalesOrder::create($request->all());
 
-        dd(collect($request->all()));
+        $order_details = collect($request->input('commodities'))->map(function ($item, $key) use ($request, $sales_order) {
+            return [
+                'order_id' => $sales_order->id,
+                'commodity_id' => $item,
+                'quantity' => $request->input('quantities.' . $key),
+                'subtotal' => $request->input('subtotals.' . $key),
+                'order_type' => 'sales_order'
+
+            ];
+        });
+
+        foreach ($order_details as $order_detail) {
+            OrderDetail::create($order_detail);
+        }
+
+        return redirect()->route('sales_orders.show', $sales_order);
     }
 
     /**
@@ -51,7 +70,8 @@ class SalesOrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $sales_order = SalesOrder::with('customer', 'orderDetails.commodity')->findOrFail($id);
+        return view('admin.orders.sales.show', compact('sales_order'));
     }
 
     /**

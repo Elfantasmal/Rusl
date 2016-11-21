@@ -17,7 +17,7 @@ class CommodityController extends Controller
      */
     public function index()
     {
-        $commodities = Commodity::paginate(10);
+        $commodities = Commodity::with('supplier')->paginate(10);
         return view('admin.commodities.index', compact('commodities'));
     }
 
@@ -41,7 +41,7 @@ class CommodityController extends Controller
     public function store(Request $request)
     {
         $commodity = Commodity::create($request->all());
-        return redirect()->route('commodities.show', [$commodity]);
+        return redirect()->route('commodities.show', $commodity);
     }
 
     /**
@@ -80,7 +80,7 @@ class CommodityController extends Controller
     {
         $commodity = Commodity::findOrFail($id);
         $commodity->update($request->all());
-        return redirect()->route('commodities.show', [$commodity]);
+        return redirect()->route('commodities.show', $commodity);
     }
 
     /**

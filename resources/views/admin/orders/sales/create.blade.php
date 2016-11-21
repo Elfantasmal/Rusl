@@ -35,15 +35,46 @@
                         </div>
                         <form method="POST" action="{{url('/sales_orders')}}">
                             {{ csrf_field() }}
+
                             <div class="box-body">
-                                <div class="col-md-3">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">客户名称:</span>
-                                        <select class="form-control select2-customer" name="customer"
-                                                style="width: 100%;">
-                                        </select>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>客户:</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">@</span>
+                                                <select class="form-control select2-customer" name="customer_id"
+                                                        style="width: 100%;">
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <!-- /.form-group -->
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>送货地址:</label>
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-truck"></i>
+                                                </div>
+                                                <input type="text" class="form-control pull-right" id="address"
+                                                       name="address"
+                                                       placeholder="请填写地址">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>送货时间:</label>
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" class="form-control pull-right" id="datepicker"
+                                                       name="delivered_at"
+                                                       placeholder="送货时间">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
                                     <br>
@@ -65,47 +96,30 @@
                                                             class="fa fa-minus"></i></button>
                                             </td>
                                             <td class="commodity">
-                                                <input type="hidden" value="" name="commodity[]">
+                                                <input type="hidden" value="" name="commodities[]">
                                                 <input class="form-control" required>
                                             </td>
                                             <td>
                                                 <input id="quantity" class="form-control" type="number"
-                                                       name="quantity[]" min="1" required>
+                                                       name="quantities[]" min="1" required>
                                             </td>
                                             <td></td>
                                             <td></td>
-                                            <td id="subtotal"></td>
+                                            <input type="hidden" name="subtotals[]" value="">
+                                            <td id="subtotal">
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
                                     <div class="box-body clearfix">
-                                        <blockquote>
+                                        <blockquote class="pull-right">
                                             <input id="total" type="hidden" name="total" value="">
                                             <p id="total">￥0.00</p>
                                             <small>总计</small>
                                         </blockquote>
                                     </div>
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-right" id="datepicker" name="date"
-                                               placeholder="送货时间">
-
-                                    </div>
-                                    <!-- /.input group -->
-                                    <br>
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-truck"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-right" id="address" name="address"
-                                               placeholder="送货地址">
-
-                                    </div>
                                     <!-- /.input group -->
                                 </div>
-
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
@@ -231,12 +245,13 @@
                         '                    class="fa fa-minus"></i></button>' +
                         '    </td>' +
                         '    <td class="commodity">' +
-                        '        <input type="hidden" value="" name="commodity[]">' +
+                        '        <input type="hidden" value="" name="commodities[]">' +
                         '        <input class="form-control" required>' +
                         '    </td>' +
-                        '    <td><input id="quantity" class="form-control" type="number" name="quantity[]" min="1" required></td>' +
+                        '    <td><input id="quantity" class="form-control" type="number" name="quantities[]" min="1" required></td>' +
                         '    <td></td>' +
                         '    <td></td>' +
+                        '    <input type="hidden" name="subtotals[]" value="">' +
                         '    <td id="subtotal"></td>' +
                         '</tr>'
                 );
@@ -255,6 +270,7 @@
                 var quantity = $(this).val();
                 var price = $(this).parent().next().html();
                 $(this).parent().nextAll('td:eq(2)').html(quantity * price);
+                $(this).parent().nextAll('input').val(quantity * price);
                 total = 0;
                 $('td#subtotal').each(function () {
                     var subtotal = parseFloat($(this).html());

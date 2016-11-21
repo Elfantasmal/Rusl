@@ -22,6 +22,11 @@ class Supplier extends Model
         'description'
     ];
 
+    public function purchaseOrders()
+    {
+        $this->hasMany('App\Models\PurchaseOrder');
+    }
+
     public function commodities()
     {
         $this->hasMany('App\Models\Commodity');

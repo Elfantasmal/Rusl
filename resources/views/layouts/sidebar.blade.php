@@ -21,7 +21,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{url('/index')}}"><i class="fa fa-tachometer"></i> <span>概览</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>测试</span></a></li>
-            <li><a href="{{url('/users')}}"><i class="fa fa-user"></i> 用户列表</a></li>
+            <li><a href="{{url('/users')}}"><i class="fa fa-user"></i> <span>用户列表</span></a></li>
             <li class="treeview">
                 <a href="{{url('/users')}}"><i class="fa fa-hashtag"></i> <span>权限控制</span>
                     <span class="pull-right-container">
@@ -59,15 +59,7 @@
                     <li><a href="{{route('purchase_orders.create')}}"><i class="fa fa-circle-o"></i> 采购订单</a></li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-money"></i> <span>财务管理</span>
-                    <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-                </a>
-                <ul class="treeview-menu">
-                </ul>
-            </li>
+            <li><a href="{{url('/test')}}"><i class="fa fa-money"></i> <span>财务管理</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>

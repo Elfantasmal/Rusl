@@ -15,6 +15,10 @@ class CreatePurchaseOrdersTable extends Migration
     {
         Schema::create('purchase_orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('supplier_id')->unsigned();
+            $table->foreign('supplier_id')->references('id')->on('suppliers');
+            $table->decimal('total');
+            $table->dateTime('delivered_at');
             $table->timestamps();
         });
     }

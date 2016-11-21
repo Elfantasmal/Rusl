@@ -39,7 +39,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $customer = Customer::create($request->all());
-        return redirect()->route('customers.show', [$customer]);
+        return redirect()->route('customers.show', $customer);
     }
 
     /**
@@ -77,7 +77,7 @@ class CustomerController extends Controller
     {
         $customer = Customer::findOrFail($id);
         $customer->update($request->all());
-        return redirect()->route('customers.show', [$customer]);
+        return redirect()->route('customers.show', $customer);
     }
 
     /**
