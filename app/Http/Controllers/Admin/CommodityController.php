@@ -107,4 +107,10 @@ class CommodityController extends Controller
         $info = Commodity::find($id, ['sales_price', 'unit']);
         return Response::json($info);
     }
+
+    public function commoditiesSupplier($supplier_id)
+    {
+        $commodities = Commodity::where('supplier_id', $supplier_id)->get(['id', 'name as text']);
+        return Response::json($commodities);
+    }
 }

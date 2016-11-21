@@ -106,9 +106,4 @@ class SupplierController extends Controller
         return response()->json($result);
     }
 
-    public function supplier_list()
-    {
-        $supplier = Supplier::all('id', 'company_name as text');
-        return Response::json($supplier);
-    }
 }

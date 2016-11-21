@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="{{asset('/vendor/adminlte/plugins/select2/select2.min.css')}}">
     <!-- bootstrap datepicker -->
     <link rel="stylesheet" href="{{asset('/vendor/adminlte/plugins/datepicker/datepicker3.css')}}">
-    <style>
-        input {
-            text-align: center;
-        }
-    </style>
+@stop
+@section('style')
+    td input {
+    text-align: center;
+    }
 @stop
 @section('content')
     <div class="content-wrapper">
@@ -33,19 +33,35 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">创建</h3>
                         </div>
-                        <form method="POST" action="{{url('/purchase_orders')}}">
+                        <form method="POST" action="{{route('purchase_orders.store')}}">
                             {{ csrf_field() }}
                             <div class="box-body">
-                                <div class="col-md-3">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">供应商名称:</span>
-                                        <select class="form-control select2-suppliers" name="suppliers"
-                                                style="width: 100%;">
-                                        </select>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>客户:</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">@</span>
+                                                <select class="form-control select2-supplier" name="supplier_id"
+                                                        style="width: 100%;">
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <!-- /.form-group -->
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>送货时间:</label>
+                                            <div class="input-group date">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                                <input type="text" class="form-control pull-right" id="datepicker"
+                                                       name="delivered_at"
+                                                       placeholder="送货时间">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
                                 <div class="col-md-12">
                                     <br>
                                     <table class="table table-bordered text-center">
@@ -66,30 +82,30 @@
                                                             class="fa fa-minus"></i></button>
                                             </td>
                                             <td class="commodity">
-                                                <input type="hidden" value="" name="commodity[]">
+                                                <input type="hidden" value="" name="commodities[]">
                                                 <input class="form-control" required>
                                             </td>
                                             <td>
                                                 <input id="quantity" class="form-control" type="number"
-                                                       name="quantity[]" min="1" required>
+                                                       name="quantities[]" min="1" required>
                                             </td>
                                             <td></td>
                                             <td></td>
-                                            <td></td>
+                                            <input type="hidden" name="subtotals[]" value="">
+                                            <td id="subtotal">
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
-                                    <br>
-                                    <div class="input-group date">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input type="text" class="form-control pull-right" id="datepicker" name="date"
-                                               placeholder="送货时间">
+                                    <div class="box-body clearfix">
+                                        <blockquote class="pull-right">
+                                            <input id="total" type="hidden" name="total" value="">
+                                            <p id="total">￥0.00</p>
+                                            <small>总计</small>
+                                        </blockquote>
                                     </div>
                                     <!-- /.input group -->
                                 </div>
-
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
@@ -130,6 +146,7 @@
 @section('script')
     <!-- Select2 -->
     <script src="{{asset('/vendor/adminlte/plugins/select2/select2.full.js')}}"></script>
+    <script src="{{asset('/vendor/adminlte/plugins/select2/i18n/zh-CN.js')}}"></script>
     <!-- bootstrap datepicker -->
     <script src="{{asset('/vendor/adminlte/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('/vendor/adminlte/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js')}}"
@@ -156,39 +173,73 @@
                 @endforeach
             ];
 
-            var CommodityData = [
-                {
-                    id: '',
-                    text: ''
-                },
-                    @foreach($commodity_list as $id => $name)
-                {
-                    id: '{{$id}}',
-                    text: '{{$name}}'
-                },
-                @endforeach
-            ];
 
             //Initialize Select2 Elements
-            var $CustomeritySelectList = $(".select2-customer");
-            $CustomeritySelectList.select2({
-                data: customerData,
+            var $SupplierSelect2 = $(".select2-supplier").select2({
+                language: "zh-CN",
+                data: supplierData,
                 placeholder: '请选择一个客户',
                 allowClear: true
             });
 
-            var $commoditySelectList = $(".select2-commodity");
-            $commoditySelectList.select2({
-                data: CommodityData,
+            var commoditiesUrl = '{{url('/commodities/supplier')}}';
+            var supplierID;
+            $SupplierSelect2.on('select2:select', function (evt) {
+                if ($SupplierSelect2.select2('data')[0].id !== '' && $SupplierSelect2.select2('data')[0].text !== '') {
+                    $('#body').html(
+                            '<tr>' +
+                            '    <th class="col-md-1"></th>' +
+                            '    <th class="col-md-3 text-center">商品名称</th>' +
+                            '    <th class="col-md-2 text-center">数量</th>' +
+                            '    <th class="col-md-2 text-center">单价</th>' +
+                            '    <th class="col-md-2 text-center">单位</th>' +
+                            '    <th class="col-md-2 text-center">小计</th>' +
+                            '</tr>' +
+                            '<tr>' +
+                            '    <td>' +
+                            '        <button id="add" type="button" class="btn btn-info btn-flat"><i' +
+                            '                    class="fa fa-plus"></i></button>' +
+                            '        <button id="remove" type="button" class="btn btn-danger btn-flat"><i' +
+                            '                    class="fa fa-minus"></i></button>' +
+                            '    </td>' +
+                            '    <td class="commodity">' +
+                            '        <input type="hidden" value="" name="commodity[]">' +
+                            '        <input class="form-control" required>' +
+                            '    </td>' +
+                            '    <td>' +
+                            '        <input id="quantity" class="form-control" type="number"' +
+                            '               name="quantity[]" min="1" required>' +
+                            '    </td>' +
+                            '    <td></td>' +
+                            '    <td></td>' +
+                            '    <td></td>' +
+                            '</tr>');
+                    $.getJSON(commoditiesUrl + '/' + $SupplierSelect2.select2('data')[0].id, function (data) {
+                        data.unshift({
+                            'id': '',
+                            'text': ''
+                        });
+                        $commoditySelect2.select2({
+                            language: 'zh-CN',
+                            data: data,
+                            placeholder: '请选择一个商品',
+                            allowClear: true
+                        });
+                    })
+                }
+            });
+
+            var $commoditySelect2 = $(".select2-commodity").select2({
+                language: "zh-CN",
                 placeholder: '请选择一个商品',
                 allowClear: true
             });
 
             var commodityId;
             var commodityName;
-            $('select').on('select2:select', function (evt) {
-                commodityId = $commoditySelectList.select2('data')[0].id;
-                commodityName = $commoditySelectList.select2('data')[0].text;
+            $commoditySelect2.on('select2:select', function (evt) {
+                commodityId = $commoditySelect2.select2('data')[0].id;
+                commodityName = $commoditySelect2.select2('data')[0].text;
 
             });
 
@@ -208,13 +259,14 @@
                         '                    class="fa fa-minus"></i></button>' +
                         '    </td>' +
                         '    <td class="commodity">' +
-                        '        <input type="hidden" value="" name="commodity[]">' +
+                        '        <input type="hidden" value="" name="commodities[]">' +
                         '        <input class="form-control" required>' +
                         '    </td>' +
-                        '    <td><input id="quantity" class="form-control" type="number" name="quantity[]" min="1" required></td>' +
+                        '    <td><input id="quantity" class="form-control" type="number" name="quantities[]" min="1" required></td>' +
                         '    <td></td>' +
                         '    <td></td>' +
-                        '    <td></td>' +
+                        '    <input type="hidden" name="subtotals[]" value="">' +
+                        '    <td id="subtotal"></td>' +
                         '</tr>'
                 );
             });
@@ -227,19 +279,29 @@
                 $(this).parent().parent().remove();
             });
 
+            var total = 0;
             $body.on('change', '#quantity', function () {
                 var quantity = $(this).val();
                 var price = $(this).parent().next().html();
                 $(this).parent().nextAll('td:eq(2)').html(quantity * price);
+                $(this).parent().nextAll('input').val(quantity * price);
+                total = 0;
+                $('td#subtotal').each(function () {
+                    var subtotal = parseFloat($(this).html());
+                    total += subtotal ? subtotal : 0;
+                });
+                $('input#total').val(total);
+                $('p#total').html('￥' + total);
             });
 
-            var url = '{{url('/commodities')}}';
+            var commodityUrl = '{{url('/commodities')}}';
+
             $body.on('click', '#confirm', function () {
                 $modal.modal('toggle');
-                if ($commoditySelectList.select2('data')[0].id !== 0 && $commoditySelectList.select2('data')[0].text !== '') {
+                if ($commoditySelect2.select2('data')[0].id !== '' && $commoditySelect2.select2('data')[0].text !== '') {
                     $context.children('input:nth-child(1)').val(commodityId);
                     $context.children('input:nth-child(2)').val(commodityName);
-                    $.getJSON(url + '/' + commodityId + '/info', function (data) {
+                    $.getJSON(commodityUrl + '/' + commodityId + '/info', function (data) {
                         $context.next().next().html(data['sales_price']);
                         $context.next().next().next().html(data['unit']);
                     })
@@ -255,7 +317,7 @@
             });
 
             $modal.on('hidden.bs.modal', function () {
-                $commoditySelectList.val(null).trigger("change");
+                $commoditySelect2.val(null).trigger("change");
             });
         });
     </script>

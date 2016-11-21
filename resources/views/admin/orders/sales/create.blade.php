@@ -33,7 +33,7 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">创建</h3>
                         </div>
-                        <form method="POST" action="{{url('/sales_orders')}}">
+                        <form method="POST" action="{{route('sales_orders.store')}}">
                             {{ csrf_field() }}
 
                             <div class="box-body">
@@ -160,6 +160,7 @@
 @section('script')
     <!-- Select2 -->
     <script src="{{asset('/vendor/adminlte/plugins/select2/select2.full.js')}}"></script>
+    <script src="{{asset('/vendor/adminlte/plugins/select2/i18n/zh-CN.js')}}"></script>
     <!-- bootstrap datepicker -->
     <script src="{{asset('/vendor/adminlte/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('/vendor/adminlte/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js')}}"
@@ -201,6 +202,7 @@
 
             //Initialize Select2 Elements
             var $CustomerSelect2 = $(".select2-customer").select2({
+                language: "zh-CN",
                 data: customerData,
                 placeholder: '请选择一个客户',
                 allowClear: true
@@ -216,6 +218,7 @@
             });
 
             var $commoditySelect2 = $(".select2-commodity").select2({
+                language: "zh-CN",
                 data: CommodityData,
                 placeholder: '请选择一个商品',
                 allowClear: true

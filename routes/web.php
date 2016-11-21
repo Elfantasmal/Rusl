@@ -37,13 +37,11 @@ Route::resource('/suppliers', 'Admin\SupplierController');
 
 # Commodities
 Route::resource('/commodities', 'Admin\CommodityController');
-Route::get('commodities/{commodity}/info', 'Admin\CommodityController@info')->name('commodities.info');
+Route::get('commodities/{commodity}/info', 'Admin\CommodityController@info');
+Route::get('/commodities/supplier/{supplier_id}', 'Admin\CommodityController@commoditiesSupplier');
 
 # Purchase Orders
 Route::resource('/purchase_orders', 'Admin\PurchaseOrderController');
 
 # Sales Orders
 Route::resource('/sales_orders', 'Admin\SalesOrderController');
-
-Route::get('/test', 'Admin\IndexController@test');
-Route::get('/resource', 'Admin\SupplierController@supplier_list')->name('test');

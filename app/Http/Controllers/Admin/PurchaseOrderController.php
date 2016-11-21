@@ -27,8 +27,7 @@ class PurchaseOrderController extends Controller
     public function create()
     {
         $supplier_list = Supplier::all()->pluck('company_name', 'id');
-        $commodity_list = Commodity::all()->pluck('name', 'id');
-        return view('admin.orders.purchase.create', compact('supplier_list', 'commodity_list'));
+        return view('admin.orders.purchase.create', compact('supplier_list'));
     }
 
     /**
@@ -86,4 +85,5 @@ class PurchaseOrderController extends Controller
     {
         //
     }
+
 }

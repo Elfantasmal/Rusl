@@ -35,8 +35,4 @@ class IndexController extends Controller
         ];
         return view('admin.index', compact('count'));
     }
-
-    public function test() {
-        return view('admin.orders.purchase.index');
-    }
 }
