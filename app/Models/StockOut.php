@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model
+class StockOut extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -13,7 +13,7 @@ class Stock extends Model
      */
     protected $fillable = [
         'commodity_id',
-        'stock',
-        'stock_alert'
+        'out_quantity',
+        'out_type'
     ];
 }
