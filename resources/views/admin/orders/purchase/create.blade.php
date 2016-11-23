@@ -187,34 +187,37 @@
             $SupplierSelect2.on('select2:select', function (evt) {
                 if ($SupplierSelect2.select2('data')[0].id !== '' && $SupplierSelect2.select2('data')[0].text !== '') {
                     $('#body').html(
-                            '<tr>' +
-                            '    <th class="col-md-1"></th>' +
-                            '    <th class="col-md-3 text-center">商品名称</th>' +
-                            '    <th class="col-md-2 text-center">数量</th>' +
-                            '    <th class="col-md-2 text-center">单价</th>' +
-                            '    <th class="col-md-2 text-center">单位</th>' +
-                            '    <th class="col-md-2 text-center">小计</th>' +
-                            '</tr>' +
-                            '<tr>' +
-                            '    <td>' +
-                            '        <button id="add" type="button" class="btn btn-info btn-flat"><i' +
-                            '                    class="fa fa-plus"></i></button>' +
-                            '        <button id="remove" type="button" class="btn btn-danger btn-flat"><i' +
-                            '                    class="fa fa-minus"></i></button>' +
-                            '    </td>' +
-                            '    <td class="commodity">' +
-                            '        <input type="hidden" value="" name="commodity[]">' +
-                            '        <input class="form-control" required>' +
-                            '    </td>' +
-                            '    <td>' +
-                            '        <input id="quantity" class="form-control" type="number"' +
-                            '               name="quantity[]" min="1" required>' +
-                            '    </td>' +
-                            '    <td></td>' +
-                            '    <td></td>' +
-                            '    <td></td>' +
+                            '<tr>'+
+                            '    <th class="col-md-1"></th>'+
+                            '    <th class="col-md-3 text-center">商品名称</th>'+
+                            '    <th class="col-md-2 text-center">数量</th>'+
+                            '    <th class="col-md-2 text-center">单价</th>'+
+                            '    <th class="col-md-2 text-center">单位</th>'+
+                            '    <th class="col-md-2 text-center">小计</th>'+
+                            '</tr>'+
+                            '<tr>'+
+                            '    <td>'+
+                            '        <button id="add" type="button" class="btn btn-info btn-flat"><i'+
+                            '                    class="fa fa-plus"></i></button>'+
+                            '        <button id="remove" type="button" class="btn btn-danger btn-flat"><i'+
+                            '                    class="fa fa-minus"></i></button>'+
+                            '    </td>'+
+                            '    <td class="commodity">'+
+                            '        <input type="hidden" value="" name="commodities[]">'+
+                            '        <input class="form-control" required>'+
+                            '    </td>'+
+                            '    <td>'+
+                            '        <input id="quantity" class="form-control" type="number"'+
+                            '               name="quantities[]" min="1" required>'+
+                            '    </td>'+
+                            '    <td></td>'+
+                            '    <td></td>'+
+                            '    <input type="hidden" name="subtotals[]" value="">'+
+                            '    <td id="subtotal">'+
+                            '    </td>'+
                             '</tr>');
                     $.getJSON(commoditiesUrl + '/' + $SupplierSelect2.select2('data')[0].id, function (data) {
+                        console.log(data);
                         data.unshift({
                             'id': '',
                             'text': ''

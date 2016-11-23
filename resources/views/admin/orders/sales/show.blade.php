@@ -41,7 +41,7 @@
                 <div class="col-sm-4 invoice-col">
                     <br>
                     <b>订单号:</b> {{$sales_order->id}}<br>
-                    <b>配送日期:</b> 2/22/2014<br>
+                    <b>配送日期:</b> {{$sales_order->delivered_at}}<br>
                     <b>配送地址:</b> {{$sales_order->address}}<br>
                 </div>
                 <!-- /.col -->

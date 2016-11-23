@@ -7,6 +7,7 @@ use App\Models\Commodity;
 use App\Models\Customer;
 use App\Models\Supplier;
 use App\Models\User;
+use Illuminate\Support\Facades\Request;
 
 class IndexController extends Controller
 {

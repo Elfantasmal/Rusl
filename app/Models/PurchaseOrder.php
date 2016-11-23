@@ -12,8 +12,7 @@ class PurchaseOrder extends Model
      * @var array
      */
     protected $fillable = [
-        'customer_id',
-        'address',
+        'supplier_id',
         'delivered_at',
         'total'
     ];
@@ -26,7 +25,7 @@ class PurchaseOrder extends Model
         return $this->morphMany('App\Models\OrderDetail', 'order');
     }
 
-    public function suppliers()
+    public function supplier()
     {
         return $this->belongsTo('App\Models\Supplier');
     }

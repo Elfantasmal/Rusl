@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Commodity;
+use App\Models\OrderDetail;
+use App\Models\PurchaseOrder;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class PurchaseOrderController extends Controller
      */
     public function index()
     {
-        //
+        $purchase_orders = PurchaseOrder::paginate(10);
+        return view('admin.orders.purchase.index', compact('purchase_orders'));
     }
 
     /**
@@ -38,7 +40,24 @@ class PurchaseOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $purchase_order = PurchaseOrder::create($request->all());
+
+        $order_details = collect($request->input('commodities'))->map(function ($item, $key) use ($request, $purchase_order) {
+            return [
+                'order_id' => $purchase_order->id,
+                'commodity_id' => $item,
+                'quantity' => $request->input('quantities.' . $key),
+                'subtotal' => $request->input('subtotals.' . $key),
+                'order_type' => 'purchase_order'
+
+            ];
+        });
+
+        foreach ($order_details as $order_detail) {
+            OrderDetail::create($order_detail);
+        }
+
+        return redirect()->route('purchase_orders.show', $purchase_order);
     }
 
     /**
@@ -49,7 +68,9 @@ class PurchaseOrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $purchase_order = PurchaseOrder::with('supplier', 'orderDetails.commodity')->findOrFail($id);
+
+        return view('admin.orders.purchase.show', compact('purchase_order'));
     }
 
     /**
