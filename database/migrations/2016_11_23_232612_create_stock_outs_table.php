@@ -19,6 +19,7 @@ class CreateStockOutsTable extends Migration
             $table->foreign('commodity_id')->references('id')->on('commodities');
             $table->integer('out_quantity')->unsigned();
             $table->enum('out_type',['销售出库','采购退货']);
+            $table->date('out_at');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateStockOutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock_outs');
+        Schema::drop('stock_outs');
     }
 }

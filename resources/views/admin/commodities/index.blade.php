@@ -8,8 +8,8 @@
                 <small>控制面板</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{url('/index')}}"><i class="fa fa-dashboard"></i> 概览</a></li>
-                <li><a href="{{url('/commodities')}}">商品管理</a></li>
+                <li><a href="{{ route('index') }}"><i class="fa fa-dashboard"></i> 概览</a></li>
+                <li><a href="{{ route('commodities.index') }}">商品管理</a></li>
                 <li class="active">商品列表</li>
             </ol>
         </section>
@@ -24,19 +24,42 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
+                            <div class="row form-inline">
+                                <div class="col-md-6">
+                                    <div class="margin">
+                                        <a href="{{route('commodities.create')}}">
+                                            <button type="button" class="btn btn-flat btn-info ">
+                                                创建
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <form action="#" method="get">
+                                        <div class="input-group pull-right margin">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-info btn-flat">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered text-center">
                                     <tbody>
                                     <tr>
                                         <th>ID</th>
-                                        <th>商品名称</th>
-                                        <th>销售价格</th>
-                                        <th>采购价格</th>
-                                        <th>单位</th>
-                                        <th>所属供应商</th>
-                                        <th>创建时间</th>
-                                        <th>更新时间</th>
-                                        <th>操作</th>
+                                        <th class="col-md-2">商品名称</th>
+                                        <th class="col-md-1">销售价格</th>
+                                        <th class="col-md-1">采购价格</th>
+                                        <th class="col-md-1">单位</th>
+                                        <th class="col-md-2">所属供应商</th>
+                                        <th class="col-md-2">创建时间</th>
+                                        <th class="col-md-2">更新时间</th>
+                                        <th class="col-md-1">操作</th>
                                     </tr>
                                     @foreach($commodities as $commodity)
                                         <tr>

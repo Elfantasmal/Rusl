@@ -24,35 +24,35 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <table class="table table-bordered">
-                                <tbody>
-                                <tr>
-                                    <th style="width: 20px">ID</th>
-                                    <th>姓名</th>
-                                    <th>邮箱</th>
-                                    <th>创建时间</th>
-                                    <th>更新时间</th>
-                                    <th>操作</th>
-                                </tr>
-                                @foreach($users as $user)
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center">
+                                    <tbody>
                                     <tr>
-                                        <td>{{$user->id}}</td>
-                                        <td>{{$user->name}}</td>
-                                        <td>{{$user->email}}</td>
-                                        <td>{{$user->created_at}}</td>
-                                        <td>{{$user->updated_at}}</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-info "><i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-info"><i class="fa fa-trash-o"></i>
-                                                </button>
-                                            </div>
-                                        </td>
+                                        <th>ID</th>
+                                        <th class="col-md-1">姓名</th>
+                                        <th class="col-md-3">邮箱</th>
+                                        <th class="col-md-3">创建时间</th>
+                                        <th class="col-md-3">更新时间</th>
+                                        <th class="col-md-2">操作</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    @foreach($users as $user)
+                                        <tr>
+                                            <td>{{$user->id}}</td>
+                                            <td>{{$user->name}}</td>
+                                            <td>{{$user->email}}</td>
+                                            <td>{{$user->created_at}}</td>
+                                            <td>{{$user->updated_at}}</td>
+                                            <td>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-info "><i class="fa fa-edit"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer clearfix">

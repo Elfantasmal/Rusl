@@ -7,7 +7,6 @@ use App\Models\Commodity;
 use App\Models\Customer;
 use App\Models\Supplier;
 use App\Models\User;
-use Illuminate\Support\Facades\Request;
 
 class IndexController extends Controller
 {
@@ -34,6 +33,7 @@ class IndexController extends Controller
             'customer_count' => Customer::count(),
             'supplier_count' => Supplier::count()
         ];
-        return view('admin.index', compact('count'));
+        $recently_added_commodities = Commodity::orderBy('created_at', 'desc')->with('supplier')->take(5)->get();
+        return view('admin.index', compact('count', 'recently_added_commodities'));
     }
 }

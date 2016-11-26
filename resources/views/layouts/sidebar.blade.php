@@ -27,7 +27,8 @@
             <li class="{{ Request::is('users')||Request::is('users/*') ? ' active' : '' }}">
                 <a href="{{route('users.index')}}"><i class="fa fa-user"></i> <span>用户列表</span></a>
             </li>
-            <li class="treeview">
+            <li class="treeview {{ Request::is('roles')||Request::is('roles/*')
+                                 ||Request::is('permissions')||Request::is('permissions/*') ? ' active' : '' }}">
                 <a href="#"><i class="fa fa-hashtag"></i> <span>权限控制</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>

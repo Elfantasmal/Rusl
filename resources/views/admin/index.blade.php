@@ -315,51 +315,24 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <ul class="products-list product-list-in-box">
-                                <li class="item">
-                                    <div>
-                                        <a href="javascript:void(0)" class="product-title">Samsung TV
-                                            <span class="label label-warning pull-right">$1800</span></a>
-                                        <span class="product-description">
-                          Samsung 32" 1080p 60Hz LED Smart HDTV.
-                        </span>
-                                    </div>
-                                </li>
-                                <!-- /.item -->
-                                <li class="item">
-                                    <div>
-                                        <a href="javascript:void(0)" class="product-title">Bicycle
-                                            <span class="label label-info pull-right">$700</span></a>
-                                        <span class="product-description">
-                          26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                        </span>
-                                    </div>
-                                </li>
-                                <!-- /.item -->
-                                <li class="item">
-                                    <div>
-                                        <a href="javascript:void(0)" class="product-title">Xbox One <span
-                                                    class="label label-danger pull-right">$350</span></a>
-                                        <span class="product-description">
-                          Xbox One Console Bundle with Halo Master Chief Collection.
-                        </span>
-                                    </div>
-                                </li>
-                                <!-- /.item -->
-                                <li class="item">
-                                    <div class=>
-                                        <a href="javascript:void(0)" class="product-title">PlayStation 4
-                                            <span class="label label-success pull-right">$399</span></a>
-                                        <span class="product-description">
-                          PlayStation 4 500GB Console (PS4)
-                        </span>
-                                    </div>
-                                </li>
-                                <!-- /.item -->
+                                @foreach($recently_added_commodities as $commodity)
+                                    <li class="item">
+                                        <div class=>
+                                            <a href="{{ route('commodities.show', $commodity->id) }}"
+                                               class="product-title">
+                                                {{ $commodity->name }}
+                                                <span class="label label-success pull-right">￥{{ $commodity->sales_price }}</span>
+                                            </a>
+                                            <span class="product-description">{{ $commodity->supplier->company_name }}</span>
+                                        </div>
+                                    </li>
+                                    <!-- /.item -->
+                                @endforeach
                             </ul>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer text-center">
-                            <a href="javascript:void(0)" class="uppercase">查看所有商品</a>
+                            <a href="{{ route('commodities.index') }}">查看所有商品</a>
                         </div>
                         <!-- /.box-footer -->
                     </div>

@@ -21,4 +21,19 @@ class Commodity extends Model
     {
         return $this->belongsTo('App\Models\Supplier');
     }
+
+    public function stocks()
+    {
+        return $this->hasMany('App\Models\Stock');
+    }
+
+    public function stockIns()
+    {
+        return $this->hasMany('App\Models\StockIn');
+    }
+
+    public function stockOuts()
+    {
+        return $this->hasMany('App\Models\StockOut');
+    }
 }

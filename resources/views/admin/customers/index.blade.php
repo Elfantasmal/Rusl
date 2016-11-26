@@ -24,20 +24,43 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
+                            <div class="row form-inline">
+                                <div class="col-md-6">
+                                    <div class="margin">
+                                        <a href="{{route('customers.create')}}">
+                                            <button type="button" class="btn btn-flat btn-info ">
+                                                创建
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <form action="#" method="get">
+                                        <div class="input-group pull-right margin">
+                                            <input type="text" class="form-control">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-info btn-flat">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered text-center ">
                                     <tbody>
                                     <tr>
                                         <th>ID</th>
-                                        <th>公司名称</th>
-                                        <th>联系电话</th>
-                                        <th>负责人</th>
-                                        <th>负责人电话</th>
-                                        <th>邮箱</th>
-                                        <th>地址</th>
-                                        <th>创建时间</th>
-                                        <th>更新时间</th>
-                                        <th>操作</th>
+                                        <th class="col-md-2">公司名称</th>
+                                        <th class="col-md-1">联系电话</th>
+                                        <th class="col-md-1">负责人</th>
+                                        <th class="col-md-1">负责人电话</th>
+                                        <th class="col-md-1">邮箱</th>
+                                        <th class="col-md-3">地址</th>
+                                        <th class="col-md-1">创建时间</th>
+                                        <th class="col-md-1">更新时间</th>
+                                        <th class="col-md-1">操作</th>
                                     </tr>
                                     @foreach($customers as $customer)
                                         <tr>

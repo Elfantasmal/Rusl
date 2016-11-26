@@ -14,6 +14,11 @@ class StockIn extends Model
     protected $fillable = [
         'commodity_id',
         'in_quantity',
-        'in_type'
+        'in_type',
+        'in_at'
     ];
+
+    public function commodity() {
+        return $this->belongsTo('App\Models\Commodity');
+    }
 }

@@ -19,6 +19,7 @@ class CreateStockInsTable extends Migration
             $table->foreign('commodity_id')->references('id')->on('commodities');
             $table->integer('in_quantity')->unsigned();
             $table->enum('in_type',['采购入库','销售退货']);
+            $table->date('in_at');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateStockInsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock_ins');
+        Schema::drop('stock_ins');
     }
 }

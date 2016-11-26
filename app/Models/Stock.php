@@ -16,4 +16,8 @@ class Stock extends Model
         'stock',
         'stock_alert'
     ];
+
+    public function commodity() {
+        return $this->belongsTo('App\Models\Commodity');
+    }
 }

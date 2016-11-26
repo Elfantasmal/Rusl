@@ -48,16 +48,16 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered text-center class="col-md-1" ">
                                     <tbody>
                                     <tr>
                                         <th>ID</th>
-                                        <th>名称</th>
-                                        <th>别名</th>
-                                        <th>简介</th>
-                                        <th>创建时间</th>
-                                        <th>更新时间</th>
-                                        <th>操作</th>
+                                        <th class="col-md-2">名称</th>
+                                        <th class="col-md-2">别名</th>
+                                        <th class="col-md-2">简介</th>
+                                        <th class="col-md-2">创建时间</th>
+                                        <th class="col-md-2">更新时间</th>
+                                        <th class="col-md-2">操作</th>
                                     </tr>
                                     @foreach($roles as $role)
                                         <tr>

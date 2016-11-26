@@ -14,6 +14,12 @@ class StockOut extends Model
     protected $fillable = [
         'commodity_id',
         'out_quantity',
-        'out_type'
+        'out_type',
+        'out_at'
     ];
+
+    public function commodity()
+    {
+        return $this->belongsTo('App\Models\Commodity');
+    }
 }

@@ -48,16 +48,16 @@
                                 </div>
                             </div>
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered text-center">
                                     <tbody>
                                     <tr>
                                         <th>ID</th>
-                                        <th>客户</th>
-                                        <th>总计</th>
-                                        <th>配送时间</th>
-                                        <th>创建时间</th>
-                                        <th>更新时间</th>
-                                        <th>操作</th>
+                                        <th class="col-md-2">客户</th>
+                                        <th class="col-md-2">总计</th>
+                                        <th class="col-md-2">配送时间</th>
+                                        <th class="col-md-2">创建时间</th>
+                                        <th class="col-md-2">更新时间</th>
+                                        <th class="col-md-2">操作</th>
                                     </tr>
                                     @foreach($purchase_orders as $purchase_order)
                                         <tr>

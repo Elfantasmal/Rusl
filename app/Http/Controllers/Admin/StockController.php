@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Stock;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class StockController extends Controller
      */
     public function index()
     {
-        return view('admin.stock.index');
+        $stocks = Stock::with('commodity')->paginate(10);
+        return view('admin.stock.index', compact('stocks'));
 
     }
 

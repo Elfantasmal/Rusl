@@ -59,3 +59,31 @@ $factory->define(App\Models\Commodity::class, function (Faker\Generator $faker) 
     ];
 });
 
+$factory->define(App\Models\Stock::class, function (Faker\Generator $faker) {
+
+    return [
+        'commodity_id' => $faker->numberBetween(10, 100),
+        'stock' => $faker->randomNumber(3),
+        'stock_alert' => $faker->randomNumber(2),
+    ];
+});
+
+$factory->define(App\Models\StockIn::class, function (Faker\Generator $faker) {
+
+    return [
+        'commodity_id' => $faker->numberBetween(10, 100),
+        'in_quantity' => $faker->randomNumber(2),
+        'in_type' => $faker->randomElement(['采购入库','销售退货']),
+        'in_at' => $faker->date()
+    ];
+});
+
+$factory->define(App\Models\StockOut::class, function (Faker\Generator $faker) {
+
+    return [
+        'commodity_id' => $faker->numberBetween(10, 100),
+        'out_quantity' => $faker->randomNumber(2),
+        'out_type' => $faker->randomElement(['销售出库','采购退货']),
+        'out_at' => $faker->date()
+    ];
+});
