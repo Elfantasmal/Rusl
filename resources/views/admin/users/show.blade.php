@@ -28,7 +28,11 @@
 
                             <h3 class="profile-username text-center">{{$user->name}}</h3>
 
-                            <p class="text-muted text-center">开发者</p>
+                            <p class="text-muted text-center">
+                                @if(!empty($user->roles->toArray()))
+                                    {{ $user->roles[0]['display_name'] }}
+                                @endif
+                            </p>
 
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
@@ -51,7 +55,9 @@
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#timeline" data-toggle="tab" aria-expanded="false">时间轴</a></li>
-                            <li class=""><a href="#settings" data-toggle="tab" aria-expanded="true">设置</a></li>
+                            @if(Auth::user()->id == $user->id)
+                                <li class=""><a href="#settings" data-toggle="tab" aria-expanded="true">设置</a></li>
+                            @endif
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="timeline">
@@ -60,8 +66,8 @@
                                     <!-- timeline time label -->
                                     <li class="time-label">
                                         <span class="bg-red">
-                          {{Date::now()->format('Y-m-d')}}
-                        </span>
+                                        {{ Date::now()->format('Y-m-d') }}
+                                        </span>
                                     </li>
                                     <!-- /.timeline-label -->
                                     <!-- timeline item -->
@@ -119,9 +125,9 @@
                                     <!-- END timeline item -->
                                     <!-- timeline time label -->
                                     <li class="time-label">
-                        <span class="bg-green">
-                          {{Date::createFromDate(2016, 10, 24)->format('Y-m-d')}}
-                        </span>
+                                        <span class="bg-green">
+                                            {{ Date::createFromDate(2016, 10, 24)->format('Y-m-d') }}
+                                        </span>
                                     </li>
                                     <!-- /.timeline-label -->
                                     <!-- timeline item -->
@@ -150,49 +156,50 @@
                                 </ul>
                             </div>
                             <!-- /.tab-pane -->
+                            @if(Auth::user()->id == $user->id)
+                                <div class="tab-pane " id="settings">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="inputName" class="col-sm-2 control-label">姓名</label>
 
-                            <div class="tab-pane " id="settings">
-                                <form class="form-horizontal">
-                                    <div class="form-group">
-                                        <label for="inputName" class="col-sm-2 control-label">姓名</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="inputName"
+                                                       placeholder="请输入您的姓名">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
 
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputName"
-                                                   placeholder="请输入您的姓名">
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="inputEmail"
+                                                       placeholder="请输入您的邮箱">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+                                        <div class="form-group">
+                                            <label for="inputExperience" class="col-sm-2 control-label">密码</label>
 
-                                        <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputEmail"
-                                                   placeholder="请输入您的邮箱">
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputExperience"
+                                                       placeholder="密码">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputExperience" class="col-sm-2 control-label">密码</label>
+                                        <div class="form-group">
+                                            <label for="inputSkills" class="col-sm-2 control-label">确认密码</label>
 
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputExperience"
-                                                   placeholder="密码">
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputSkills"
+                                                       placeholder="确认密码">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputSkills" class="col-sm-2 control-label">确认密码</label>
-
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputSkills"
-                                                   placeholder="确认密码">
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-danger">提交</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="submit" class="btn btn-danger">提交</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- /.tab-pane -->
+                                    </form>
+                                </div>
+                                <!-- /.tab-pane -->
+                            @endif
                         </div>
                         <!-- /.tab-content -->
                     </div>

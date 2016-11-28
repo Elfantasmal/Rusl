@@ -88,7 +88,7 @@
                     <!-- TABLE: LATEST SALES ORDERS -->
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">最新订单</h3>
+                            <h3 class="box-title">最新销售订单</h3>
 
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
@@ -104,48 +104,22 @@
                                 <table class="table no-margin">
                                     <thead>
                                     <tr>
-                                        <th>订单ID</th>
-                                        <th>商品</th>
-                                        <th>状态</th>
+                                        <th class="col-md-2">销售订单ID</th>
+                                        <th class="col-md-4">客户</th>
+                                        <th class="col-md-2">总计</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                        <td>Call of Duty IV</td>
-                                        <td><span class="label label-success">在途</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                        <td>Samsung Smart TV</td>
-                                        <td><span class="label label-warning">待定</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                        <td>iPhone 6 Plus</td>
-                                        <td><span class="label label-danger">运输</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                        <td>Samsung Smart TV</td>
-                                        <td><span class="label label-info">处理</span></td>
-
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                        <td>Samsung Smart TV</td>
-                                        <td><span class="label label-warning">待定</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                        <td>iPhone 6 Plus</td>
-                                        <td><span class="label label-danger">交货</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                        <td>Call of Duty IV</td>
-                                        <td><span class="label label-success">在途</span></td>
-                                    </tr>
+                                    @foreach($recently_added_sales_orders as $sales_order)
+                                        <tr>
+                                            <td><a href="{{ route('sales_orders.show', $sales_order->id) }}">
+                                                    {{ 'SO'.str_pad($sales_order->id,4,'0',STR_PAD_LEFT) }}
+                                                </a>
+                                            </td>
+                                            <td>{{ $sales_order->customer->company_name }}</td>
+                                            <td><span class="label label-success">{{ $sales_order->total }}</span></td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -153,8 +127,10 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer clearfix" style="display: block;">
-                            <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">创建订单</a>
-                            <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">查看所有订单</a>
+                            <a href="{{ route('sales_orders.create') }}"
+                               class="btn btn-sm btn-info btn-flat pull-left">创建销售订单</a>
+                            <a href="{{ route('sales_orders.index') }}"
+                               class="btn btn-sm btn-default btn-flat pull-right">查看所有销售订单</a>
                         </div>
                         <!-- /.box-footer -->
                     </div>
@@ -163,7 +139,7 @@
                     <!-- TABLE: LATEST ORDERS -->
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">最新订单</h3>
+                            <h3 class="box-title">最新采购订单</h3>
 
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
@@ -179,48 +155,23 @@
                                 <table class="table no-margin">
                                     <thead>
                                     <tr>
-                                        <th>订单ID</th>
-                                        <th>商品</th>
-                                        <th>状态</th>
+                                        <th class="col-md-2">采购订单ID</th>
+                                        <th class="col-md-4">供应商</th>
+                                        <th class="col-md-2">总计</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                        <td>Call of Duty IV</td>
-                                        <td><span class="label label-success">在途</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                        <td>Samsung Smart TV</td>
-                                        <td><span class="label label-warning">待定</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                        <td>iPhone 6 Plus</td>
-                                        <td><span class="label label-danger">运输</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                        <td>Samsung Smart TV</td>
-                                        <td><span class="label label-info">处理</span></td>
-
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                        <td>Samsung Smart TV</td>
-                                        <td><span class="label label-warning">待定</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                        <td>iPhone 6 Plus</td>
-                                        <td><span class="label label-danger">交货</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                        <td>Call of Duty IV</td>
-                                        <td><span class="label label-success">在途</span></td>
-                                    </tr>
+                                    @foreach($recently_added_purchase_orders as $purchase_order)
+                                        <tr>
+                                            <td><a href="{{ route('purchase_orders.show', $purchase_order->id) }}">
+                                                    {{ 'PO'.str_pad($purchase_order->id,4,'0',STR_PAD_LEFT) }}
+                                                </a>
+                                            </td>
+                                            <td>{{ $purchase_order->supplier->company_name }}</td>
+                                            <td><span class="label label-success">{{ $purchase_order->total }}</span>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -228,8 +179,10 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer clearfix" style="display: block;">
-                            <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">创建订单</a>
-                            <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">查看所有订单</a>
+                            <a href="{{ route('purchase_orders.create') }}"
+                               class="btn btn-sm btn-info btn-flat pull-left">创建采购订单</a>
+                            <a href="{{ route('purchase_orders.index') }}"
+                               class="btn btn-sm btn-default btn-flat pull-right">查看所有采购订单</a>
                         </div>
                         <!-- /.box-footer -->
                     </div>

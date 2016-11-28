@@ -34,8 +34,11 @@
                                  alt="User Image">
 
                             <p>
-                                {{ Auth::user()->name }} - 开发者
-                                <small>2016.10</small>
+                                {{ Auth::user()->name }}
+                                @if(!empty(Auth::user()->roles->toArray()))
+                                    - {{ Auth::user()->roles[0]['display_name'] }}
+                                @endif
+                                <small>{{ Date::now()->format('Y-m-d') }}</small>
                             </p>
                         </li>
                         <!-- Menu Footer-->

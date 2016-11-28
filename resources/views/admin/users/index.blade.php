@@ -8,8 +8,8 @@
                 <small>控制面板</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="/index"><i class="fa fa-dashboard"></i> 概览</a></li>
-                <li><a href="#">用户管理</a></li>
+                <li><a href="{{ route('index') }}"><i class="fa fa-dashboard"></i> 概览</a></li>
+                <li><a href="{{ route('users.index') }}">用户管理</a></li>
                 <li class="active">用户列表</li>
             </ol>
         </section>
@@ -44,8 +44,16 @@
                                             <td>{{$user->updated_at}}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-info "><i class="fa fa-edit"></i>
-                                                    </button>
+                                                    <a href="{{ route('users.show', $user->id) }}">
+                                                        <button type="button" class="btn btn-info ">
+                                                            <i class="fa fa-book"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="{{ route('users.edit' ,$user->id) }}">
+                                                        <button type="button" class="btn btn-info ">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
