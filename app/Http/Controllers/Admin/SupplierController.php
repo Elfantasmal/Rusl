@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\PurchaseOrder;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
-use Response;
 
 class SupplierController extends Controller
 {
@@ -51,7 +51,8 @@ class SupplierController extends Controller
     public function show($id)
     {
         $supplier = Supplier::findOrFail($id);
-        return view('admin.suppliers.show', compact('supplier'));
+        $purchase_orders = PurchaseOrder::whereSupplierId($id)->with('supplier')->get();
+        return view('admin.suppliers.show', compact('supplier', 'purchase_orders'));
     }
 
     /**
@@ -91,19 +92,4 @@ class SupplierController extends Controller
         Supplier::destroy($id);
         return redirect()->route('suppliers.index');
     }
-
-    /**
-     * Search the specified resource with keyword from storage.
-     *
-     * @param string $keyword
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function search($keyword)
-    {
-        $result = Supplier::where('company_name', 'like', "%$keyword%")
-            ->orderBy('id', 'asc')
-            ->get();
-        return response()->json($result);
-    }
-
 }

@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Klaravel\Ntrust\Traits\NtrustRoleTrait;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Role extends Model
 {
     use NtrustRoleTrait;
+    use LogsActivity;
 
     /*
      * Role profile to get value from ntrust config file.
@@ -24,4 +26,16 @@ class Role extends Model
         'display_name',
         'description',
     ];
+
+    /**
+     * The attributes that will log change.
+     *
+     * @var array
+     */
+    protected static $logAttributes = [
+        'name',
+        'display_name',
+        'description',
+    ];
+
 }

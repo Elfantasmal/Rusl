@@ -52,7 +52,7 @@
                                     <tbody>
                                     <tr>
                                         <th>ID</th>
-                                        <th class="col-md-2">客户</th>
+                                        <th class="col-md-2">供应商</th>
                                         <th class="col-md-2">总计</th>
                                         <th class="col-md-2">配送时间</th>
                                         <th class="col-md-2">创建时间</th>
@@ -61,7 +61,7 @@
                                     </tr>
                                     @foreach($purchase_orders as $purchase_order)
                                         <tr>
-                                            <td>{{$purchase_order->id}}</td>
+                                            <td>{{ 'PO'.str_pad($purchase_order->id,4,'0',STR_PAD_LEFT) }}</td>
                                             <td>{{$purchase_order->supplier->company_name}}</td>
                                             <td>{{$purchase_order->total}}</td>
                                             <td>{{$purchase_order->delivered_at}}</td>

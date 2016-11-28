@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\SalesOrder;
 use Illuminate\Http\Request;
 use Response;
 
@@ -51,7 +52,8 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customer = Customer::findOrFail($id);
-        return view('admin.customers.show', compact('customer'));
+        $sales_orders = SalesOrder::whereCustomerId($id)->with('customer')->get();
+        return view('admin.customers.show', compact('customer', 'sales_orders'));
     }
 
     /**

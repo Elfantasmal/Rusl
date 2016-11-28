@@ -27,8 +27,11 @@
                             <strong><i class="fa fa-mobile margin-r-5"></i> 商品名称</strong>
                             <p class="text-muted">{{$commodity->name}}</p>
                             <hr>
-                            <strong><i class="fa fa-jpy margin-r-5"> 价格</i></strong>
-                            <p class="text-muted">{{$commodity->price}} 元</p>
+                            <strong><i class="fa fa-jpy margin-r-5"> 销售价格</i></strong>
+                            <p class="text-muted">{{$commodity->sales_price}} 元</p>
+                            <hr>
+                            <strong><i class="fa fa-jpy margin-r-5"> 采购价格</i></strong>
+                            <p class="text-muted">{{$commodity->purchase_price}} 元</p>
                             <hr>
                             <strong><i>@</i> 所属供应商</strong>
                             <p class="text-muted">{{$commodity->supplier->company_name}}</p>

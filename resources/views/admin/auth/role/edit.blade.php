@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>权限</label>
-                                    <select class="form-control  select2" multiple="multiple" name="permissions_list[]"
+                                    <select class="form-control  select2" multiple="multiple" name="permissions[]"
                                             style="width: 100%">
                                         <option value=""></option>
                                         @foreach($permissions as $permission)

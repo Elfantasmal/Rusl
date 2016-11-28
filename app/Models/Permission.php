@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Klaravel\Ntrust\Traits\NtrustPermissionTrait;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Permission extends Model
 {
     use NtrustPermissionTrait;
+    use LogsActivity;
 
-    /*
+    /**
      * Role profile to get value from ntrust config file.
      */
     protected static $roleProfile = 'user';
@@ -20,6 +22,18 @@ class Permission extends Model
      * @var array
      */
     protected $fillable = [
+        'name',
+        'display_name',
+        'description',
+    ];
+
+
+    /**
+     * The attributes that will log change.
+     *
+     * @var array
+     */
+    protected static $logAttributes = [
         'name',
         'display_name',
         'description',

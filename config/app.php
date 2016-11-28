@@ -172,6 +172,7 @@ return [
         Klaravel\Ntrust\NtrustServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Overtrue\LaravelLang\TranslationServiceProvider::class,
+        Spatie\Activitylog\ActivitylogServiceProvider::class,
 
         /*
          * Application Service Providers...

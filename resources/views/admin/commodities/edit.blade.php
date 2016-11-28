@@ -52,7 +52,7 @@
                                 <br>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-cube"></i></span>
-                                    <input id="unit" name="unit" type="number" class="form-control"
+                                    <input id="unit" name="unit" class="form-control"
                                            placeholder="单位" value="{{$commodity->unit}}">
                                 </div>
                                 <br>

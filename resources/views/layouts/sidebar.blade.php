@@ -39,7 +39,7 @@
                         <a href="{{route('roles.index')}}"><i class="fa fa-circle-o"></i> 角色列表</a>
                     </li>
                     <li class="{{ Request::is('permissions')||Request::is('permissions/*') ? ' active' : '' }}">
-                        <a href="{{route('permissions.index')}}"><i class="fa fa-circle-o"></i> 权限权限</a>
+                        <a href="{{route('permissions.index')}}"><i class="fa fa-circle-o"></i> 权限列表</a>
                     </li>
                 </ul>
             </li>

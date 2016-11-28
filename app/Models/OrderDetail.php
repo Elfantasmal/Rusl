@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class OrderDetail extends Model
 {
+    use LogsActivity;
+
     public $timestamps = false;
 
     /**
@@ -14,6 +17,19 @@ class OrderDetail extends Model
      * @var array
      */
     protected $fillable = [
+        'order_id',
+        'commodity_id',
+        'quantity',
+        'subtotal',
+        'order_type',
+    ];
+
+    /**
+     * The attributes that will log change.
+     *
+     * @var array
+     */
+    protected static $logAttributes = [
         'order_id',
         'commodity_id',
         'quantity',

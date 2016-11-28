@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Supplier extends Model
 {
+    use LogsActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -13,6 +15,21 @@ class Supplier extends Model
      * @var array
      */
     protected $fillable = [
+        'company_name',
+        'company_phone',
+        'contact_name',
+        'mobile_phone',
+        'email',
+        'address',
+        'description'
+    ];
+
+    /**
+     * The attributes that will log change.
+     *
+     * @var array
+     */
+    protected static $logAttributes = [
         'company_name',
         'company_phone',
         'contact_name',

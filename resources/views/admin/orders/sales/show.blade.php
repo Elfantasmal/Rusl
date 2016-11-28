@@ -40,7 +40,7 @@
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
                     <br>
-                    <b>订单号:</b> {{$sales_order->id}}<br>
+                    <b>订单号:</b> {{ 'SO'.str_pad($sales_order->id,4,'0',STR_PAD_LEFT) }}<br>
                     <b>配送日期:</b> {{$sales_order->delivered_at}}<br>
                     <b>配送地址:</b> {{$sales_order->address}}<br>
                 </div>

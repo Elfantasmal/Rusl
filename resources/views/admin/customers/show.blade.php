@@ -55,6 +55,48 @@
                     </div>
                     <!-- /.col -->
                 </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">过完采购订单</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="table-responsive ">
+                                <table class="table table-bordered text-center">
+                                    <tbody>
+                                    <tr>
+                                        <th class="col-md-1">ID</th>
+                                        <th class="col-md-1">客户</th>
+                                        <th class="col-md-2">配送地址</th>
+                                        <th class="col-md-1">总计</th>
+                                        <th class="col-md-2">配送时间</th>
+                                        <th class="col-md-2">创建时间</th>
+                                        <th class="col-md-2">更新时间</th>
+                                    </tr>
+                                    @foreach($sales_orders as $sales_order)
+                                        <tr>
+                                            <td><a href="{{ route('sales_orders.show', $sales_order->id) }}">
+                                                    {{ 'SO'.str_pad($sales_order->id,4,'0',STR_PAD_LEFT) }}
+                                                </a>
+                                            </td>
+                                            <td>{{$sales_order->customer->company_name}}</td>
+                                            <td>{{$sales_order->address}}</td>
+                                            <td>{{$sales_order->total}}</td>
+                                            <td>{{$sales_order->delivered_at}}</td>
+                                            <td>{{$sales_order->created_at}}</td>
+                                            <td>{{$sales_order->updated_at}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
             </div>
             <!-- /.row -->
         </section>

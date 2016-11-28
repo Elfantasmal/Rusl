@@ -62,7 +62,7 @@
                                     </tr>
                                     @foreach($sales_orders as $sales_order)
                                         <tr>
-                                            <td>{{$sales_order->id}}</td>
+                                            <td>{{ 'SO'.str_pad($sales_order->id,4,'0',STR_PAD_LEFT) }}</td>
                                             <td>{{$sales_order->customer->company_name}}</td>
                                             <td>{{$sales_order->address}}</td>
                                             <td>{{$sales_order->total}}</td>

@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Commodity extends Model
 {
+    use LogsActivity;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -13,7 +16,22 @@ class Commodity extends Model
      */
     protected $fillable = [
         'name',
-        'price',
+        'sales_price',
+        'purchase_price',
+        'unit',
+        'supplier_id'
+    ];
+
+    /**
+     * The attributes that will log change.
+     *
+     * @var array
+     */
+    protected static $logAttributes = [
+        'name',
+        'sales_price',
+        'purchase_price',
+        'unit',
         'supplier_id'
     ];
 

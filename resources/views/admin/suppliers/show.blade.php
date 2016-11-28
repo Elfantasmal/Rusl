@@ -55,6 +55,46 @@
                     </div>
                     <!-- /.col -->
                 </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">过完采购订单</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="table-responsive ">
+                                <table class="table table-bordered text-center">
+                                    <tbody>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th class="col-md-2">供应商</th>
+                                        <th class="col-md-2">总计</th>
+                                        <th class="col-md-2">配送时间</th>
+                                        <th class="col-md-2">创建时间</th>
+                                        <th class="col-md-2">更新时间</th>
+                                    </tr>
+                                    @foreach($purchase_orders as $purchase_order)
+                                        <tr>
+                                            <td><a href="{{ route('purchase_orders.show', $purchase_order->id) }}">
+                                                    {{ 'PO'.str_pad($purchase_order->id,4,'0',STR_PAD_LEFT) }}
+                                                </a>
+                                            </td>
+                                            <td>{{$purchase_order->supplier->company_name}}</td>
+                                            <td>{{$purchase_order->total}}</td>
+                                            <td>{{$purchase_order->delivered_at}}</td>
+                                            <td>{{$purchase_order->created_at}}</td>
+                                            <td>{{$purchase_order->updated_at}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <!-- /.col -->
             </div>
             <!-- /.row -->
         </section>
