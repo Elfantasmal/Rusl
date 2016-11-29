@@ -45,6 +45,12 @@
                                                 <span class="input-group-addon">@</span>
                                                 <select class="form-control select2-customer" name="customer_id"
                                                         style="width: 100%;">
+                                                    <option value=""></option>
+                                                    @foreach($customers as $id => $name)
+                                                        <option value="{{$id}}">
+                                                            {{$name}}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -141,6 +147,12 @@
                         <div class="modal-body">
                             <select class="form-control select2-commodity"
                                     style="width: 100%;">
+                                <option value=""></option>
+                                @foreach($commodities as $id => $name)
+                                    <option value="{{$id}}">
+                                        {{$name}}
+                                    </option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="modal-footer">
@@ -173,37 +185,10 @@
                 autoclose: true
             });
 
-            //Initialize Select2 List Data
-            var customerData = [
-                {
-                    id: '',
-                    text: ''
-                },
-                    @foreach($customer_list as $id => $name)
-                {
-                    id: '{{$id}}',
-                    text: '{{$name}}'
-                },
-                @endforeach
-            ];
-
-            var CommodityData = [
-                {
-                    id: '',
-                    text: ''
-                },
-                    @foreach($commodity_list as $id => $name)
-                {
-                    id: '{{$id}}',
-                    text: '{{$name}}'
-                },
-                @endforeach
-            ];
 
             //Initialize Select2 Elements
             var $CustomerSelect2 = $(".select2-customer").select2({
                 language: "zh-CN",
-                data: customerData,
                 placeholder: '请选择一个客户',
                 allowClear: true
             });
@@ -219,7 +204,6 @@
 
             var $commoditySelect2 = $(".select2-commodity").select2({
                 language: "zh-CN",
-                data: CommodityData,
                 placeholder: '请选择一个商品',
                 allowClear: true
             });

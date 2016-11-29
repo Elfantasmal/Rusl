@@ -51,113 +51,15 @@
                     <!-- /.box -->
                 </div>
                 <!-- /.col -->
-                <div class="col-md-9">
-                    <div class="nav-tabs-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#timeline" data-toggle="tab" aria-expanded="false">时间轴</a></li>
-                            @if(Auth::user()->id == $user->id)
-                                <li class=""><a href="#settings" data-toggle="tab" aria-expanded="true">设置</a></li>
-                            @endif
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="timeline">
-                                <!-- The timeline -->
-                                <ul class="timeline timeline-inverse">
-                                    <!-- timeline time label -->
-                                    <li class="time-label">
-                                        <span class="bg-red">
-                                        {{ Date::now()->format('Y-m-d') }}
-                                        </span>
-                                    </li>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <li>
-                                        <i class="fa fa-envelope bg-blue"></i>
+                @if(Auth::user()->id == $user->id)
+                    <div class="col-md-9">
+                        <div class="nav-tabs-custom">
 
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                                            <h3 class="timeline-header"><a href="#">开发团队</a> 发送了密码重置邮件</h3>
-
-                                            <div class="timeline-body">
-
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <a class="btn btn-primary btn-xs">Read more</a>
-                                                <a class="btn btn-danger btn-xs">Delete</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <li>
-                                        <i class="fa fa-user bg-aqua"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="fa fa-clock-o"></i> 5 分钟 前</span>
-
-                                            <h3 class="timeline-header no-border"><a href="#">Test</a> 修改了用户信息
-
-                                            </h3>
-                                        </div>
-                                    </li>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <li>
-                                        <i class="fa fa-comments bg-yellow"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="fa fa-clock-o"></i> 27 分钟 前</span>
-
-                                            <h3 class="timeline-header"><a href="#">Test</a> 测试测试测试
-                                            </h3>
-
-                                            <div class="timeline-body">
-                                                测试测试测试
-                                                测试测试测试测试测试测试
-                                                测试测试测试测试测试测试测试测试测试测试测试测试
-                                            </div>
-                                            <div class="timeline-footer">
-                                                <a class="btn btn-warning btn-flat btn-xs">View comment</a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- END timeline item -->
-                                    <!-- timeline time label -->
-                                    <li class="time-label">
-                                        <span class="bg-green">
-                                            {{ Date::createFromDate(2016, 10, 24)->format('Y-m-d') }}
-                                        </span>
-                                    </li>
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
-                                    <li>
-                                        <i class="fa fa-camera bg-purple"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i
-                                                        class="fa fa-clock-o"></i> {{Date::create(2016, 10, 24, 12, 0, 0)->format('Y-m-d')}}</span>
-
-                                            <h3 class="timeline-header"><a href="#">Test</a> 上传了新照片
-                                            </h3>
-
-                                            <div class="timeline-body">
-                                                <img src="http://placehold.it/150x100" alt="..." class="margin">
-                                                <img src="http://placehold.it/150x100" alt="..." class="margin">
-                                                <img src="http://placehold.it/150x100" alt="..." class="margin">
-                                                <img src="http://placehold.it/150x100" alt="..." class="margin">
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- END timeline item -->
-                                    <li>
-                                        <i class="fa fa-clock-o bg-gray"></i>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.tab-pane -->
-                            @if(Auth::user()->id == $user->id)
-                                <div class="tab-pane " id="settings">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#settings" data-toggle="tab" aria-expanded="true">设置</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="settings">
                                     <form class="form-horizontal">
                                         <div class="form-group">
                                             <label for="inputName" class="col-sm-2 control-label">姓名</label>
@@ -199,13 +101,14 @@
                                     </form>
                                 </div>
                                 <!-- /.tab-pane -->
-                            @endif
+                            </div>
+                            <!-- /.tab-content -->
                         </div>
-                        <!-- /.tab-content -->
+                        <!-- /.nav-tabs-custom -->
+
                     </div>
-                    <!-- /.nav-tabs-custom -->
-                </div>
-                <!-- /.col -->
+                    <!-- /.col -->
+                @endif
             </div>
             <!-- /.row -->
         </section>

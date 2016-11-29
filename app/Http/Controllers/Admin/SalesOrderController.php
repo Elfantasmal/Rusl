@@ -29,9 +29,9 @@ class SalesOrderController extends Controller
      */
     public function create()
     {
-        $customer_list = Customer::all()->pluck('company_name', 'id');
-        $commodity_list = Commodity::all()->pluck('name', 'id');
-        return view('admin.orders.sales.create', compact('customer_list', 'commodity_list'));
+        $customers = Customer::all()->pluck('company_name', 'id');
+        $commodities = Commodity::all()->pluck('name', 'id');
+        return view('admin.orders.sales.create', compact('customers', 'commodities'));
     }
 
     /**

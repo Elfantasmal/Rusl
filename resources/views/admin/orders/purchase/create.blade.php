@@ -44,6 +44,12 @@
                                                 <span class="input-group-addon">@</span>
                                                 <select class="form-control select2-supplier" name="supplier_id"
                                                         style="width: 100%;">
+                                                    <option value=""></option>
+                                                    @foreach($suppliers as $id => $name)
+                                                        <option value="{{$id}}">
+                                                            {{$name}}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -159,31 +165,14 @@
                 autoclose: true
             });
 
-            //Initialize Select2 List Data
-            var supplierData = [
-                {
-                    id: '',
-                    text: ''
-                },
-                    @foreach($supplier_list as $id => $name)
-                {
-                    id: '{{$id}}',
-                    text: '{{$name}}'
-                },
-                @endforeach
-            ];
-
-
             //Initialize Select2 Elements
             var $SupplierSelect2 = $(".select2-supplier").select2({
                 language: "zh-CN",
-                data: supplierData,
                 placeholder: '请选择一个客户',
                 allowClear: true
             });
 
             var commoditiesUrl = '{{url('/commodities/supplier')}}';
-            var supplierID;
             $SupplierSelect2.on('select2:select', function (evt) {
                 if ($SupplierSelect2.select2('data')[0].id !== '' && $SupplierSelect2.select2('data')[0].text !== '') {
                     $('#body').html(
