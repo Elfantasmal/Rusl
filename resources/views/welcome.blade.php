@@ -9,14 +9,14 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{url('favicon.ico')}}"/>
     <!-- Fonts -->
-    <link href="https://fonts.gmirror.org/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.proxy.ustclug.org/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
     <style>
         html, body {
             background-color: #fff;
             color: #636b6f;
-            font-family: 'Raleway','PingFang SC','Verdana', 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'sans-serif';
+            font-family: 'Raleway', 'PingFang SC', 'Verdana', 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'sans-serif';
             font-weight: 100;
             height: 100vh;
             margin: 0;
@@ -64,21 +64,23 @@
     </style>
 </head>
 <body>
-<div class="flex-center position-ref full-height">
-    <div class="content">
-        <div class="title m-b-md">
-            Rusl
-        </div>
-        <div class="subtitle m-b-md">
-            基于SAE的供销存系统
-        </div>
+    <div class="flex-center position-ref full-height">
+        <div class="content">
+            <div class="title m-b-md">
+                Rusl
+            </div>
+            <div class="subtitle m-b-md">
+                基于SAE的供销存系统
+            </div>
 
-        <div class="links m-b-md">
-            <a href="{{ url('/login') }}">登录</a>
-            <a href="{{ url('/register') }}">注册</a>
-            <a href="{{ url('https://github.com/gnailiylin/Rusl') }}">GitHub</a>
+            <div class="links m-b-md">
+                <a href="{{ url('/login') }}">登录</a>
+                <a href="{{ url('/register') }}">注册</a>
+                <a href="{{ url('https://github.com/gnailiylin/Rusl') }}">GitHub</a>
+            </div>
         </div>
     </div>
-</div>
+<script type="text/javascript" size="90" alpha="0.6" zindex="1"
+        src="{{asset('/vendor/adminlte/plugins/ribbon/ribbon.js')}}"></script>
 </body>
 </html>

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Stock;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Commodity;
+use App\Models\Stock;
+use App\Models\StockIn;
+use App\Models\StockOut;
+use Illuminate\Http\Request;
 
 class StockController extends Controller
 {
@@ -27,58 +30,67 @@ class StockController extends Controller
      */
     public function create()
     {
-        //
+        $commodities = Commodity::all()->pluck('name', 'id');
+        return view('admin.stock.create', compact('commodities'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $stock = Stock::create($request->all());
+        return redirect()->route('stocks.show', $stock);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $stock = Stock::findOrFail($id);
+        $recently_stock_ins = StockIn::with('commodity')->whereCommodityId($stock->commodity_id)->get()->take(5);
+        $recently_stock_outs = StockOut::with('commodity')->whereCommodityId($stock->commodity_id)->get()->take(5);
+        return view('admin.stock.show', compact('stock', 'recently_stock_ins', 'recently_stock_outs'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $stock = Stock::with('commodity')->findOrFail($id);
+        $commodities = Commodity::all()->pluck('name', 'id');
+        return view('admin.stock.edit', compact('stock', 'commodities'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $stock = Stock::findOrFail($id);
+        $stock->update($request->all());
+        return redirect()->route('stocks.show', $stock);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

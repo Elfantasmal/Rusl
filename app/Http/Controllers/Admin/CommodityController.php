@@ -28,8 +28,8 @@ class CommodityController extends Controller
      */
     public function create()
     {
-        $supplier_list = Supplier::all()->pluck('company_name', 'id');
-        return view('admin.commodities.create', compact('supplier_list'));
+        $suppliers = Supplier::all()->pluck('company_name', 'id');
+        return view('admin.commodities.create', compact('suppliers'));
     }
 
     /**
@@ -65,8 +65,8 @@ class CommodityController extends Controller
     public function edit($id)
     {
         $commodity = Commodity::findOrFail($id);
-        $supplier_list = Supplier::all()->pluck('company_name', 'id');
-        return view('admin.commodities.edit', compact('commodity', 'supplier_list'));
+        $suppliers = Supplier::all()->pluck('company_name', 'id');
+        return view('admin.commodities.edit', compact('commodity', 'suppliers'));
     }
 
     /**

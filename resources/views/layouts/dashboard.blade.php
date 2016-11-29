@@ -45,7 +45,6 @@
 
     <!-- Content Wrapper. Contains page content -->
     @yield('content')
-    <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
     @include('layouts.footer')

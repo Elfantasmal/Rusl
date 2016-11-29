@@ -58,7 +58,8 @@
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-fax"></i></span>
                                     <select class="form-control  select2" name="supplier_id" style="width: 100%">
-                                        @foreach($supplier_list as $id => $name)
+                                        <option value=""></option>
+                                        @foreach($suppliers as $id => $name)
                                             <option value="{{$id}}">
                                                 {{$name}}
                                             </option>
@@ -81,12 +82,17 @@
     </div>
 @stop
 @section('script')
+    <!-- Select2 -->
     <script src="{{asset('/vendor/adminlte/plugins/select2/select2.full.js')}}"></script>
+    <script src="{{asset('/vendor/adminlte/plugins/select2/i18n/zh-CN.js')}}"></script>
     <script>
         $(function () {
             //Initialize Select2 Elements
-            $(".select2").select2();
-
+            $(".select2").select2({
+                language: "zh-CN",
+                placeholder: '请选择一个供应商',
+                allowClear: true
+            });
         });
     </script>
 @stop

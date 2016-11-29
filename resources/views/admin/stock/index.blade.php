@@ -27,6 +27,11 @@
                             <div class="row form-inline">
                                 <div class="col-md-6">
                                     <div class="margin">
+                                        <a href="{{route('stocks.create')}}">
+                                            <button type="button" class="btn btn-flat btn-info ">
+                                                创建
+                                            </button>
+                                        </a>
                                         <a href="{{route('stock_in.create')}}">
                                             <button type="button" class="btn btn-flat btn-info ">
                                                 商品入库
@@ -73,9 +78,14 @@
                                             <td>{{$stock->updated_at}}</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="{{url('stocks/'.$stock->id)}}">
+                                                    <a href="{{route('stocks.show', $stock->id)}}">
                                                         <button type="button" class="btn btn-info ">
                                                             <i class="fa fa-book"></i>
+                                                        </button>
+                                                    </a>
+                                                    <a href="{{route('stocks.edit', $stock->id)}}">
+                                                        <button type="button" class="btn btn-info ">
+                                                            <i class="fa fa-edit"></i>
                                                         </button>
                                                     </a>
                                                 </div>
@@ -98,4 +108,5 @@
         </section>
         <!-- /.section -->
     </div>
+    <!-- /.content-wrapper -->
 @stop

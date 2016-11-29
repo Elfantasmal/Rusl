@@ -75,4 +75,5 @@
         </section>
         <!-- /.section -->
     </div>
+    <!-- /.content-wrapper -->
 @stop
