@@ -95,6 +95,17 @@ class CommodityController extends Controller
         return redirect('/commodities');
     }
 
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $commodities = Commodity::where('name', 'like', "%$keyword%")->paginate(10);
+        return view('admin.commodities.index', compact('commodities'));
+    }
 
     /**
      * Return specified resource json info from storage
@@ -113,4 +124,6 @@ class CommodityController extends Controller
         $commodities = Commodity::where('supplier_id', $supplier_id)->get(['id', 'name as text']);
         return Response::json($commodities);
     }
+
+
 }

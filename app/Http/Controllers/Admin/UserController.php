@@ -81,4 +81,16 @@ class UserController extends Controller
     {
         //
     }
+
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $users = User::where('name', 'like', "%$keyword%")->paginate(10);
+        return view('admin.users.index', compact('users'));
+    }
 }

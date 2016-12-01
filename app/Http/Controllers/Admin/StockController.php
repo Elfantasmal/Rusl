@@ -97,4 +97,18 @@ class StockController extends Controller
     {
         //
     }
+
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $stocks = Stock::with('commodity')->whereHas('commodity', function ($query) use ($keyword) {
+            $query->where('name', 'like', "%$keyword%");
+        })->paginate(10);
+        return view('admin.stock.index', compact('stocks'));
+    }
 }

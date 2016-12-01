@@ -102,9 +102,8 @@ class CustomerController extends Controller
      */
     public function search($keyword)
     {
-        $result = Customer::where('company_name', 'like', "%$keyword%")->paginate(10);
-
-        return response()->json($result);
+        $customers = Customer::where('company_name', 'like', "%$keyword%")->paginate(10);
+        return view('admin.customers.index', compact('customers'));
     }
 
     /**

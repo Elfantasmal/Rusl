@@ -35,16 +35,14 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <form action="#" method="get">
-                                        <div class="input-group pull-right margin">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-info btn-flat">
-                                                    <i class="fa fa-search"></i>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </form>
+                                    <div class="input-group pull-right margin">
+                                        <input id="keyword" type="text" class="form-control">
+                                        <span class="input-group-btn">
+                                            <button id="search-btn" type="button" class="btn btn-info btn-flat">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="table-responsive">
@@ -106,4 +104,17 @@
         </section>
         <!-- /.section -->
     </div>
+@stop
+@section('script')
+    <script>
+        $(function () {
+            $('#search-btn').on('click', function (event) {
+                var keyword = $('#keyword').val();
+                if (keyword != '') {
+                    location.href = '{{url('/customers/search')}}' + '/' + keyword;
+                } else {
+                }
+            })
+        });
+    </script>
 @stop

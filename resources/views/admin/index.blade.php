@@ -117,7 +117,7 @@
                                                 </a>
                                             </td>
                                             <td>{{ $sales_order->customer->company_name }}</td>
-                                            <td><span class="label label-success">{{ $sales_order->total }}</span></td>
+                                            <td><span class="label label-success">￥{{ $sales_order->total }}</span></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
@@ -168,7 +168,7 @@
                                                 </a>
                                             </td>
                                             <td>{{ $purchase_order->supplier->company_name }}</td>
-                                            <td><span class="label label-success">{{ $purchase_order->total }}</span>
+                                            <td><span class="label label-success">￥{{ $purchase_order->total }}</span>
                                             </td>
                                         </tr>
                                     @endforeach

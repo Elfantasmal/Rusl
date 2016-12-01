@@ -24,6 +24,18 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
+                            <div class="row form-inline">
+                                <div class="col-md-6 pull-right">
+                                    <div class="input-group pull-right margin">
+                                        <input id="keyword" type="text" class="form-control">
+                                        <span class="input-group-btn">
+                                            <button id="search-btn" type="button" class="btn btn-info btn-flat">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered text-center">
                                     <tbody>
@@ -76,4 +88,17 @@
         <!-- /.section -->
     </div>
     <!-- /.content-wrapper -->
+@stop
+@section('script')
+    <script>
+        $(function () {
+            $('#search-btn').on('click', function (event) {
+                var keyword = $('#keyword').val();
+                if (keyword != '') {
+                    location.href = '{{url('/users/search')}}' + '/' + keyword;
+                } else {
+                }
+            })
+        });
+    </script>
 @stop

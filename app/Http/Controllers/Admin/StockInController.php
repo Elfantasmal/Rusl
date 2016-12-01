@@ -40,7 +40,6 @@ class StockInController extends Controller
      */
     public function store(Request $request)
     {
-
         $stock_ins = collect($request->input('commodities'))->map(function ($item, $key) use ($request) {
             return [
                 'commodity_id' => $item,
@@ -66,7 +65,7 @@ class StockInController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -101,5 +100,19 @@ class StockInController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $stock_ins = StockIn::with('commodity')->whereHas('commodity', function ($query) use ($keyword) {
+            $query->where('name', 'like', "%$keyword%");
+        })->paginate(10);
+        return view('admin.stock.in.index', compact('stock_ins'));
     }
 }

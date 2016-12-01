@@ -89,4 +89,18 @@ class PermissionController extends Controller
     {
         return redirect()->route('permissions.index');
     }
+
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $permissions = Permission::where('name', 'like', "%$keyword%")
+            ->orWhere('display_name', 'like', "%$keyword%")
+            ->paginate(10);
+        return view('admin.auth.permission.index', compact('permissions'));
+    }
 }

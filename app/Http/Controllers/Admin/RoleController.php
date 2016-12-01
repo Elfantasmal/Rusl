@@ -40,7 +40,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $role = Role::create($request->all());
-        $role->perms()->sync($request->get('permissions',[]));
+        $role->perms()->sync($request->get('permissions', []));
         return redirect()->route('roles.show', $role);
     }
 
@@ -93,5 +93,19 @@ class RoleController extends Controller
     public function destroy($id)
     {
         return redirect()->route('roles.index');
+    }
+
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $roles = Role::where('name', 'like', "%$keyword%")
+            ->orWhere('display_name', 'like', "%$keyword%")
+            ->paginate(10);
+        return view('admin.auth.role.index', compact('roles'));
     }
 }

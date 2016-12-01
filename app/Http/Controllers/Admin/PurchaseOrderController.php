@@ -107,4 +107,17 @@ class PurchaseOrderController extends Controller
         //
     }
 
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $purchase_orders = PurchaseOrder::with('supplier')->whereHas('supplier', function ($query) use ($keyword) {
+            $query->where('company_name', 'like', "%$keyword%");
+        })->paginate(10);
+        return view('admin.orders.purchase.index', compact('purchase_orders'));
+    }
 }

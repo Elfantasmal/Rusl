@@ -107,4 +107,18 @@ class SalesOrderController extends Controller
     {
         //
     }
+
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $sales_orders = SalesOrder::with('customer')->whereHas('customer', function ($query) use ($keyword) {
+            $query->where('company_name', 'like', "%$keyword%");
+        })->paginate(10);
+        return view('admin.orders.sales.index', compact('sales_orders'));
+    }
 }

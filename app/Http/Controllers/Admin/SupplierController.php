@@ -92,4 +92,16 @@ class SupplierController extends Controller
         Supplier::destroy($id);
         return redirect()->route('suppliers.index');
     }
+
+    /**
+     * Search the specified resource with keyword from storage.
+     *
+     * @param string $keyword
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($keyword)
+    {
+        $suppliers = Supplier::where('company_name', 'like', "%$keyword%")->paginate(10);
+        return view('admin.suppliers.index', compact('suppliers'));
+    }
 }
