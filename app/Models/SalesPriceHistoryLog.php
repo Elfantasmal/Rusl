@@ -19,4 +19,9 @@ class SalesPriceHistoryLog extends Model
         'sales_price',
         'changed_at',
     ];
+
+    public function commodity()
+    {
+        return $this->belongsTo('App\Models\Commodity');
+    }
 }

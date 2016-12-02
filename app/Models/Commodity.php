@@ -54,4 +54,14 @@ class Commodity extends Model
     {
         return $this->hasMany('App\Models\StockOut');
     }
+
+    public function salesPriceHistoryLog()
+    {
+        return $this->hasMany('App\Models\SalesPriceHistoryLog');
+    }
+
+    public function purchasePriceHistoryLog()
+    {
+        return $this->hasMany('App\Models\PurchasePriceHistoryLog');
+    }
 }
