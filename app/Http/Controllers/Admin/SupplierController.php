@@ -39,6 +39,7 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $supplier = Supplier::create($request->all());
+        flash('创建成功', 'success');
         return redirect()->route('suppliers.show', $supplier);
     }
 
@@ -78,6 +79,7 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::findOrFail($id);
         $supplier->update($request->all());
+        flash('修改成功', 'success');
         return redirect()->route('suppliers.show', $supplier);
     }
 
