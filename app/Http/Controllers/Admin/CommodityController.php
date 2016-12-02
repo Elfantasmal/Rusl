@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\PurchasePriceChanged;
+use App\Events\SalesPriceChanged;
 use App\Http\Controllers\Controller;
 use App\Models\Commodity;
 use App\Models\Supplier;
@@ -41,6 +43,8 @@ class CommodityController extends Controller
     public function store(Request $request)
     {
         $commodity = Commodity::create($request->all());
+        event(new SalesPriceChanged($commodity));
+        event(new PurchasePriceChanged($commodity));
         return redirect()->route('commodities.show', $commodity);
     }
 
@@ -79,7 +83,15 @@ class CommodityController extends Controller
     public function update(Request $request, $id)
     {
         $commodity = Commodity::findOrFail($id);
+        $old_sales_price = $commodity->sales_price;
+        $old_purchase_price = $commodity->purchase_price;
         $commodity->update($request->all());
+        if ($old_sales_price != $commodity->sales_price) {
+            event(new SalesPriceChanged($commodity));
+        }
+        if ($old_purchase_price != $commodity->purchase_price) {
+            event(new PurchasePriceChanged($commodity));
+        }
         return redirect()->route('commodities.show', $commodity);
     }
 

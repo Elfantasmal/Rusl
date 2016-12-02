@@ -13,10 +13,10 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'App\Events\SalesPriceChanged' => [
-            'App\Listeners\SalesPriceHistoryLog',
+            'App\Listeners\SalesPriceChangedLog',
         ],
         'App\Events\PurchasePriceChanged' => [
-            'App\Listeners\PurchasePriceHistoryLog',
+            'App\Listeners\PurchasePriceChangedLog',
         ],
         'App\Events\StockAlert' => [
             'App\Listeners\SendStockLowerAlertNotification',

@@ -16,7 +16,7 @@ class PurchasePriceHistoryLog extends Model
      */
     protected $fillable = [
         'commodity_id',
-        'sales_price',
+        'purchase_price',
         'changed_at',
     ];
 

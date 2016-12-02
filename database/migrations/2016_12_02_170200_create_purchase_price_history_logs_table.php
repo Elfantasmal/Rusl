@@ -15,7 +15,7 @@ class CreatePurchasePriceHistoryLogsTable extends Migration
     {
         Schema::create('purchase_price_history_logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('commodity_id')->unsigned()->unique();
+            $table->integer('commodity_id')->unsigned();
             $table->foreign('commodity_id')->references('id')->on('commodities');
             $table->integer('purchase_price')->unsigned();
             $table->date('changed_at');
