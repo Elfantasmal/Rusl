@@ -37,14 +37,14 @@
                                 </div>
                                 <br>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-jpy"></i></span>
+                                    <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                     <input id="sales-price" name="sales_price" type="number" class="form-control"
                                            placeholder="销售价格" value="{{$commodity->sales_price}}">
                                     <span class="input-group-addon">.00</span>
                                 </div>
                                 <br>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-jpy"></i></span>
+                                    <span class="input-group-addon"><i class="fa fa-credit-card-alt"></i></span>
                                     <input id="purchase-price" name="purchase_price" type="number" class="form-control"
                                            placeholder="采购价格" value="{{$commodity->purchase_price}}">
                                     <span class="input-group-addon">.00</span>

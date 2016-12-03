@@ -24,13 +24,13 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            <strong><i class="fa fa-mobile margin-r-5"></i> 商品名称</strong>
+                            <strong><i class="fa fa-barcode margin-r-5"></i> 商品名称</strong>
                             <p class="text-muted">{{$commodity->name}}</p>
                             <hr>
-                            <strong><i class="fa fa-jpy margin-r-5"> 销售价格</i></strong>
+                            <strong><i class="fa fa-credit-card margin-r-5"> 销售价格</i></strong>
                             <p class="text-muted">{{$commodity->sales_price}} 元</p>
                             <hr>
-                            <strong><i class="fa fa-jpy margin-r-5"> 采购价格</i></strong>
+                            <strong><i class="fa fa-credit-card-alt margin-r-5"> 采购价格</i></strong>
                             <p class="text-muted">{{$commodity->purchase_price}} 元</p>
                             <hr>
                             <strong><i>@</i> 所属供应商</strong>
@@ -99,70 +99,180 @@
     <script src="{{asset('vendor/adminlte/plugins/highcharts/highcharts.js')}}"></script>
     <script>
         $(function () {
+            Highcharts.setOptions({
+                lang: {
+                    months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                    resetZoom: "重置",
+                    resetZoomTitle: "重置比 1:1",
+                    shortMonths: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                    thousandsSep: ",",
+                    weekdays: ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+
+                }
+            });
+
+            var salesPriceData = [
+                @foreach($sales_price_history_logs as $log)
+                    [Date.UTC({{explode('-', $log->changed_at)[0]}}, {{explode('-', $log->changed_at)[1] - 1}}, {{explode('-', $log->changed_at)[2]}}),{{$log->sales_price}}],
+                @endforeach
+            ];
+
+            var purchasePriceData = [
+                @foreach($purchase_price_history_logs as $log)
+                [Date.UTC({{explode('-', $log->changed_at)[0]}}, {{explode('-', $log->changed_at)[1] - 1}}, {{explode('-', $log->changed_at)[2]}}),{{$log->purchase_price}}],
+                @endforeach
+            ];
+
             $('#sales-price-chart').highcharts({
+                chart: {
+                    zoomType: 'x'
+                },
                 title: {
-                    text: '历史销售价格',
-                    x: -20 //center
+                    text: '历史销售价格'
+                },
+                subtitle: {
+                    text: document.ontouchstart === undefined ?
+                            '鼠标拖动可以进行缩放' : '手势操作进行缩放'
                 },
                 xAxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    type: 'datetime',
+                    dateTimeLabelFormats: {
+                        millisecond: '%H:%M:%S.%L',
+                        second: '%H:%M:%S',
+                        minute: '%H:%M',
+                        hour: '%H:%M',
+                        day: '%m-%d',
+                        week: '%m-%d',
+                        month: '%Y-%m',
+                        year: '%Y'
+                    }
+                },
+                tooltip: {
+                    dateTimeLabelFormats: {
+                        millisecond: '%H:%M:%S.%L',
+                        second: '%H:%M:%S',
+                        minute: '%H:%M',
+                        hour: '%H:%M',
+                        day: '%Y-%m-%d',
+                        week: '%m-%d',
+                        month: '%Y-%m',
+                        year: '%Y'
+                    }
                 },
                 yAxis: {
                     title: {
                         text: '价格 (￥)'
-                    },
-                    plotLines: [{
-                        value: 0,
-                        width: 1,
-                        color: '#808080'
-                    }]
-                },
-                tooltip: {
-                    valuePrefix: '$'
+                    }
                 },
                 legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
+                    enabled: false
                 },
-                series: [ {
-                    name: '采购价格',
-                    data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'area',
+                    name: '销售价格',
+                    data: salesPriceData
                 }]
             });
             $('#purchase-price-chart').highcharts({
+                chart: {
+                    zoomType: 'x'
+                },
                 title: {
-                    text: '历史采购价格',
-                    x: -20 //center
+                    text: '历史采购价格'
+                },
+                subtitle: {
+                    text: document.ontouchstart === undefined ?
+                            '鼠标拖动可以进行缩放' : '手势操作进行缩放'
                 },
                 xAxis: {
-                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    type: 'datetime',
+                    dateTimeLabelFormats: {
+                        millisecond: '%H:%M:%S.%L',
+                        second: '%H:%M:%S',
+                        minute: '%H:%M',
+                        hour: '%H:%M',
+                        day: '%m-%d',
+                        week: '%m-%d',
+                        month: '%Y-%m',
+                        year: '%Y'
+                    }
+                },
+                tooltip: {
+                    dateTimeLabelFormats: {
+                        millisecond: '%H:%M:%S.%L',
+                        second: '%H:%M:%S',
+                        minute: '%H:%M',
+                        hour: '%H:%M',
+                        day: '%Y-%m-%d',
+                        week: '%m-%d',
+                        month: '%Y-%m',
+                        year: '%Y'
+                    }
                 },
                 yAxis: {
                     title: {
                         text: '价格 (￥)'
-                    },
-                    plotLines: [{
-                        value: 0,
-                        width: 1,
-                        color: '#808080'
-                    }]
-                },
-                tooltip: {
-                    valuePrefix: '$'
+                    }
                 },
                 legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    borderWidth: 0
+                    enabled: false
                 },
-                series: [ {
+                plotOptions: {
+                    area: {
+                        fillColor: {
+                            linearGradient: {
+                                x1: 0,
+                                y1: 0,
+                                x2: 0,
+                                y2: 1
+                            },
+                            stops: [
+                                [0, Highcharts.getOptions().colors[0]],
+                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            ]
+                        },
+                        marker: {
+                            radius: 2
+                        },
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                lineWidth: 1
+                            }
+                        },
+                        threshold: null
+                    }
+                },
+                series: [{
+                    type: 'area',
                     name: '采购价格',
-                    data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+                    data: purchasePriceData
                 }]
             });
         });

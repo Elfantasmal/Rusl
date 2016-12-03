@@ -6,6 +6,8 @@ use App\Events\PurchasePriceChanged;
 use App\Events\SalesPriceChanged;
 use App\Http\Controllers\Controller;
 use App\Models\Commodity;
+use App\Models\PurchasePriceHistoryLog;
+use App\Models\SalesPriceHistoryLog;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Response;
@@ -57,7 +59,9 @@ class CommodityController extends Controller
     public function show($id)
     {
         $commodity = Commodity::findOrFail($id);
-        return view('admin.commodities.show', compact('commodity'));
+        $sales_price_history_logs = SalesPriceHistoryLog::whereCommodityId($id)->get();
+        $purchase_price_history_logs = PurchasePriceHistoryLog::whereCommodityId($id)->get();
+        return view('admin.commodities.show', compact('commodity', 'sales_price_history_logs', 'purchase_price_history_logs'));
     }
 
     /**
