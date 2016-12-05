@@ -21,6 +21,7 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('quantity');
             $table->decimal('subtotal');
             $table->string('order_type');
+            $table->timestamps();
         });
     }
 

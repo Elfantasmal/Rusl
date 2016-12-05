@@ -9,8 +9,6 @@ class OrderDetail extends Model
 {
     use LogsActivity;
 
-    public $timestamps = false;
-
     /**
      * The attributes that are mass assignable.
      *

@@ -16,7 +16,8 @@
     "klaravel/ntrust": "^1.1",
     "algolia/algoliasearch-client-php": "^1.11",
     "laracasts/flash": "^2.0",
-    "spatie/laravel-activitylog": "^1.10"
+    "spatie/laravel-activitylog": "^1.10",
+    "pusher/pusher-php-server": "^2.6"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
