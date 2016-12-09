@@ -45,7 +45,7 @@
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <label>权限</label>
+                                    <label>角色</label>
                                     <select class="form-control  select2" multiple="multiple" name="roles[]"
                                             style="width: 100%">
                                         <option value=""></option>

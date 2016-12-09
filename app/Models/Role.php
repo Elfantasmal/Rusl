@@ -37,5 +37,4 @@ class Role extends Model
         'display_name',
         'description',
     ];
-
 }

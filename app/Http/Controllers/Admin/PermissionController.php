@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class PermissionController extends Controller
@@ -49,8 +50,11 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
-        $permission = Permission::find($id);
-        return view('admin.auth.permission.show', $permission);
+        $permission = Permission::findOrFail($id);
+        $roles = Role::with('perms')->whereHas('perms', function ($query) use ($id) {
+            $query->where('id', $id);
+        })->get();
+        return view('admin.auth.permission.show', compact('permission', 'roles'));
     }
 
     /**

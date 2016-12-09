@@ -131,7 +131,7 @@ class CommodityController extends Controller
      */
     public function info($id)
     {
-        $info = Commodity::find($id, ['sales_price', 'unit']);
+        $info = Commodity::findOrFail($id, ['sales_price', 'unit']);
         return Response::json($info);
     }
 

@@ -114,7 +114,7 @@ class CustomerController extends Controller
      */
     public function address($id)
     {
-        $address = Customer::find($id, ['address']);
+        $address = Customer::findOrFail($id, ['address']);
         return Response::json($address);
     }
 }

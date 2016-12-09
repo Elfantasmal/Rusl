@@ -3,12 +3,10 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                500
-            </h1>
+
             <ol class="breadcrumb">
                 <li><a href="{{url('/index')}}"><i class="fa fa-dashboard"></i> 概览</a></li>
-                <li class="active">503错误</li>
+                <li class="active">500错误</li>
             </ol>
         </section>
 

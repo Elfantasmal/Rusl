@@ -89,7 +89,6 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="{{url('/test')}}"><i class="fa fa-money"></i> <span>财务管理</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>

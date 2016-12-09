@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Commodity;
 use App\Models\Customer;
-use App\Models\OrderDetail;
 use App\Models\PurchaseOrder;
 use App\Models\SalesOrder;
 use App\Models\Supplier;
@@ -13,16 +12,6 @@ use App\Models\User;
 
 class IndexController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *

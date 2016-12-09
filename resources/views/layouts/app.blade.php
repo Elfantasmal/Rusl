@@ -43,6 +43,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Rusl
                 </a>
+
             </div>
         </div>
     </nav>
