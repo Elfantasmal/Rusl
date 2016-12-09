@@ -72,11 +72,6 @@
                                                             <i class="fa fa-book"></i>
                                                         </button>
                                                     </a>
-                                                    <a href="{{url('/purchase_orders/'.$purchase_order->id.'/edit')}}">
-                                                        <button type="button" class="btn btn-info ">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>

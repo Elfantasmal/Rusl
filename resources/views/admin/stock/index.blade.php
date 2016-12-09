@@ -70,7 +70,7 @@
                                     @foreach($stocks as $stock)
                                         <tr>
                                             <td>{{$stock->commodity->name}}</td>
-                                            <td>{{$stock->stock}}</td>
+                                            <td {{$stock->stock<$stock->stock_alert?'class=text-red':''}}>{{$stock->stock}}</td>
                                             <td>{{$stock->stock_alert}}</td>
                                             <td>{{$stock->created_at}}</td>
                                             <td>{{$stock->updated_at}}</td>

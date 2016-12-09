@@ -192,9 +192,9 @@
 
                 <div class="col-md-4">
                     <!-- PRODUCT LIST -->
-                    <div class="box box-primary">
+                    <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title">最近添加商品</h3>
+                            <h3 class="box-title">商品库存预警</h3>
 
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
@@ -207,24 +207,26 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <ul class="products-list product-list-in-box">
-                                @foreach($recently_added_commodities as $commodity)
+                                @foreach($stocks as $stock)
+                                    @if($stock->stock < $stock->stock_alert)
                                     <li class="item">
                                         <div class=>
-                                            <a href="{{ route('commodities.show', $commodity->id) }}"
+                                            <a href="{{ route('commodities.show', $stock->id) }}"
                                                class="product-title">
-                                                {{ $commodity->name }}
-                                                <span class="label label-success pull-right">￥{{ $commodity->sales_price }}</span>
+                                                {{ $stock->commodity->name }}
+                                                <span class="label label-danger pull-right">{{ $stock->stock }}</span>
                                             </a>
-                                            <span class="product-description">{{ $commodity->supplier->company_name }}</span>
+                                            <span class="product-description">库存低于预警设置数量</span>
                                         </div>
                                     </li>
                                     <!-- /.item -->
+                                    @endif
                                 @endforeach
                             </ul>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer text-center">
-                            <a href="{{ route('commodities.index') }}">查看所有商品</a>
+                            <a href="{{ route('stocks.index') }}">查看所有库存</a>
                         </div>
                         <!-- /.box-footer -->
                     </div>
