@@ -49,12 +49,22 @@ class StockOutController extends Controller
 
             ];
         });
+        $error = false;
         foreach ($stock_outs as $stock_out) {
             StockOut::create($stock_out);
-            $stock = Stock::where('commodity_id', $stock_out['commodity_id'])->first();
-            $stock->decrement('stock', $stock_out['out_quantity']);
+            if ($stock = Stock::where('commodity_id', $stock_out['commodity_id'])->first() != null) {
+                $stock->decrement('stock', $stock_out['out_quantity']);
+            } else {
+                $error = true;
+            }
         }
-        return redirect()->route('stock_out.index');
+        if ($error) {
+            flash('库存中无商品信息，请先创建库存信息', 'danger');
+            return redirect()->route('stock_out.create');
+        } else {
+            flash('信息已创建', 'success');
+            return redirect()->route('stock_out.index');
+        }
     }
 
     /**

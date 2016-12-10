@@ -39,6 +39,7 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         $permission = Permission::create($request->all());
+        flash('信息已创建', 'success');
         return redirect()->route('permissions.show', $permission);
     }
 
@@ -80,6 +81,7 @@ class PermissionController extends Controller
     {
         $permission = Permission::findOrFail($id);
         $permission->update($request->all());
+        flash('信息已创建', 'success');
         return redirect()->route('permissions.show', $permission);
     }
 
@@ -91,7 +93,7 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-        return redirect()->route('permissions.index');
+        //
     }
 
     /**

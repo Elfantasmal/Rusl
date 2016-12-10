@@ -20,6 +20,7 @@
 
         <!-- Main content -->
         <section class="content">
+            @include('flash::message')
             <div class="row">
                 <div class="col-md-12">
                     <div class="box box-info">

@@ -57,6 +57,8 @@ class PurchaseOrderController extends Controller
             OrderDetail::create($order_detail);
         }
 
+        flash('订单已创建', 'success');
+
         return redirect()->route('purchase_orders.show', $purchase_order);
     }
 
@@ -69,7 +71,6 @@ class PurchaseOrderController extends Controller
     public function show($id)
     {
         $purchase_order = PurchaseOrder::with('supplier', 'orderDetails.commodity')->findOrFail($id);
-
         return view('admin.orders.purchase.show', compact('purchase_order'));
     }
 

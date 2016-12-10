@@ -67,7 +67,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->update($request->all());
-        $user->roles()->sync($request->get('roles'));
+        $user->roles()->sync($request->get('roles',[]));
         return redirect()->route('users.show', $user);
     }
 

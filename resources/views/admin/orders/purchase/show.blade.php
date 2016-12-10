@@ -16,6 +16,7 @@
 
         <!-- Main content -->
         <section class="invoice">
+            @include('flash::message')
             <div class="row">
                 <div class="col-xs-12">
                     <h2 class="page-header">

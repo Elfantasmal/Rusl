@@ -42,6 +42,7 @@ class RoleController extends Controller
     {
         $role = Role::create($request->all());
         $role->perms()->sync($request->get('permissions', []));
+        flash('信息已创建', 'success');
         return redirect()->route('roles.show', $role);
     }
 
@@ -85,6 +86,7 @@ class RoleController extends Controller
         $role = Role::findOrFail($id);
         $role->update($request->all());
         $role->perms()->sync($request->get('permissions'));
+        flash('信息已修改', 'success');
         return redirect()->route('roles.show', $role);
     }
 
@@ -96,7 +98,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        return redirect()->route('roles.index');
+        //
     }
 
     /**

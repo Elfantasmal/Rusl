@@ -16,6 +16,33 @@
 
         <!-- Maout content -->
         <section class="content">
+            @inc@include('flash::message')
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">商品出库</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row form-inline">
+                                <div class="col-md-6">
+                                    <div class="margin">
+                                        <a href="{{route('stock_out.create')}}">
+                                            <button type="button" class="btn btn-flat btn-info ">
+                                                创建
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group pull-right margin">
+                                        <input id="keyword" type="text" class="form-control">
+                                        <span class="input-group-btn">
+                                            <button id="search-btn" type="button" class="btn btn-info btn-flat">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                            </spanlude('flash::message')
             <div class="row">
                 <div class="col-md-12">
                     <div class="box">

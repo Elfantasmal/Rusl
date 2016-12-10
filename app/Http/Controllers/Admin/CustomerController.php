@@ -40,6 +40,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $customer = Customer::create($request->all());
+        flash('信息已创建', 'success');
         return redirect()->route('customers.show', $customer);
     }
 
@@ -79,6 +80,7 @@ class CustomerController extends Controller
     {
         $customer = Customer::findOrFail($id);
         $customer->update($request->all());
+        flash('信息已修改', 'success');
         return redirect()->route('customers.show', $customer);
     }
 
@@ -91,7 +93,8 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         Customer::destroy($id);
-        return redirect('/customers');
+        flash('信息已删除', 'success');
+        return redirect()->route('customers.index');
     }
 
     /**

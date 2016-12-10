@@ -42,8 +42,14 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        $stock = Stock::create($request->all());
-        return redirect()->route('stocks.show', $stock);
+        if(Stock::whereCommodityId($request->get('commodity_id'))->first() !=null) {
+            flash('信息已存在', 'warning');
+            return redirect()->route('stocks.create');
+        } else {
+            $stock = Stock::create($request->all());
+            flash('信息已创建', 'success');
+            return redirect()->route('stocks.show', $stock);
+        }
     }
 
     /**
@@ -84,6 +90,7 @@ class StockController extends Controller
     {
         $stock = Stock::findOrFail($id);
         $stock->update($request->all());
+        flash('信息已修改', 'success');
         return redirect()->route('stocks.show', $stock);
     }
 

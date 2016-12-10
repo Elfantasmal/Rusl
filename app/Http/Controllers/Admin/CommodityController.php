@@ -47,6 +47,7 @@ class CommodityController extends Controller
         $commodity = Commodity::create($request->all());
         event(new SalesPriceChanged($commodity));
         event(new PurchasePriceChanged($commodity));
+        flash('信息已创建', 'success');
         return redirect()->route('commodities.show', $commodity);
     }
 
@@ -96,6 +97,7 @@ class CommodityController extends Controller
         if ($old_purchase_price != $commodity->purchase_price) {
             event(new PurchasePriceChanged($commodity));
         }
+        flash('信息已修改', 'success');
         return redirect()->route('commodities.show', $commodity);
     }
 
@@ -108,7 +110,8 @@ class CommodityController extends Controller
     public function destroy($id)
     {
         Commodity::destroy($id);
-        return redirect('/commodities');
+        flash('信息已删除', 'success');
+        return redirect()->route('commodities.index');
     }
 
     /**
@@ -140,6 +143,4 @@ class CommodityController extends Controller
         $commodities = Commodity::where('supplier_id', $supplier_id)->get(['id', 'name as text']);
         return Response::json($commodities);
     }
-
-
 }

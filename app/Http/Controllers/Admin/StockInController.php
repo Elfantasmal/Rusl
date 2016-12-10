@@ -28,7 +28,7 @@ class StockInController extends Controller
      */
     public function create()
     {
-        $commodity_list = Commodity::all()->pluck('name', 'id');
+        $commodity_list = Commodity::with('stock')->pluck('name', 'id');
         return view('admin.stock.in.create', compact('commodity_list'));
     }
 
@@ -49,12 +49,22 @@ class StockInController extends Controller
 
             ];
         });
+        $error = false;
         foreach ($stock_ins as $stock_in) {
             StockIn::create($stock_in);
-            $stock = Stock::where('commodity_id', $stock_in['commodity_id'])->first();
-            $stock->increment('stock', $stock_in['in_quantity']);
+            if ($stock = Stock::where('commodity_id', $stock_in['commodity_id'])->first() != null) {
+                $stock->increment('stock', $stock_in['in_quantity']);
+            } else {
+                $error = true;
+            }
         }
-        return redirect()->route('stock_in.index');
+        if ($error) {
+            flash('库存中无商品信息，请先创建库存信息', 'danger');
+            return redirect()->route('stock_in.create');
+        } else {
+            flash('信息已创建', 'success');
+            return redirect()->route('stock_in.index');
+        }
     }
 
     /**
