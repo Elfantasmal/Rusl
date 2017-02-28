@@ -3,9 +3,9 @@
     <!-- Logo -->
     <a href="{{url('/index')}}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>R</b>usl</span>
+        <span class="logo-mini"><b>B</b>uddhism</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Rusl</b>Admin</span>
+        <span class="logo-lg"><b>Buddhism</b>Admin</span>
     </a>
 
     <!-- Header Navbar -->

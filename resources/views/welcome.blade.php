@@ -67,10 +67,10 @@
     <div class="flex-center position-ref full-height">
         <div class="content">
             <div class="title m-b-md">
-                Rusl
+                Buddhism
             </div>
             <div class="subtitle m-b-md">
-                基于SAE的供销存系统
+                基于lavaral的后台管理系统
             </div>
 
             <div class="links m-b-md">
